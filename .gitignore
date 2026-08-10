@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+
+# Generated scientific data: publish governed releases to Hugging Face
+/release/
+/work/
+/runs/
+/inputs/
+/analysis/
+
+# Local editing utilities and history
+/tools/
+/intro/.bayesian_preregistration_history/
+
+# Raw PDB coordinate tree; retain only small metadata and retrieval code
+/intro/pdbs/CYP1A2/
+/intro/pdbs/CYP2C9/
+/intro/pdbs/CYP2D6/
+/intro/pdbs/CYP3A4/
+
+# Defense in depth against accidental scientific-artifact commits
+*.a3m
+*.cif
+*.cif.gz
+*.pdb
+*.pdb.gz
+*.npz
+*.npy
+*.parquet
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.log
+*.lock
+*.metadata
+.cache/
+
+# Temporary files
+*.tmp
+*.building
+*.partial

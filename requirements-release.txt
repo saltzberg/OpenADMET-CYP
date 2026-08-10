@@ -1,0 +1,9 @@
+# Versions used for the v1 Hugging Face release and verification.
+gemmi==0.7.5
+networkx==3.6.1
+numpy==2.1.3
+pandas==2.3.3
+pyarrow==22.0.0
+rdkit==2026.3.2
+prolif==2.1.0
+posebusters==0.6.5
