@@ -7,3 +7,4 @@
 *.yml text eol=lf
 *.yaml text eol=lf
 *.fasta text eol=lf
+site/assets/mermaid.min.js binary

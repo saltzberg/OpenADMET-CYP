@@ -8,6 +8,14 @@ This repository deliberately separates source code from large scientific artifac
 - Hugging Face contains the cofolded and experimental structures, the row-level Parquet table, QC results, checksums, and release provenance.
 - Raw run directories, MSAs, caches, logs, and intermediate analyses remain outside version control.
 
+## Project site
+
+The project summary, methodology, and data index are published at:
+
+https://aetherark.com/sites/admet-cyp/
+
+The Bayesian preregistration is under **Methodology**. The cofolding release is under **Data**.
+
 ## Cofolding dataset
 
 The published structure release is available at:

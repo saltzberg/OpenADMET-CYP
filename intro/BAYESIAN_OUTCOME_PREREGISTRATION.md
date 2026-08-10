@@ -100,7 +100,7 @@ Assays are never as clean as you would hope and assays across systems are never 
 
 The CYP3A4, CYP2C9, and CYP1A2 fluorescence assays are adapted from ThermoFisher Vivid kits. CYP3A4 uses DBOMF; CYP2C9 and CYP1A2 use EOMCC. CYP2D6 instead measures dextromethorphan parent depletion by acoustic ejection mass spectrometry; the tested fluorescent probes did not perform adequately. Probe and readout therefore need to be represented explicitly rather than hidden inside the isoform label.  How much can we trust the data that comes from each experiment to correctly represent the ground-truth inhibition of these compounds?
 
-Each dose-response experiment has matched preincubation arms. The direct arm omits NADPH. The time-dependent inhibition (TDI) arm includes NADPH and can capture metabolism-dependent inhibition in addition to direct inhibition. These pIC50 values are apparent, probe-dependent assay outcomes, not Ki's or binding affinities. T
+Each dose-response experiment has matched preincubation arms. The direct arm omits NADPH. The time-dependent inhibition (TDI) arm includes NADPH and can capture metabolism-dependent inhibition in addition to direct inhibition. These pIC50 values are apparent, probe-dependent assay outcomes, not Ki's or binding affinities.
 
 Additionally, there is a large single-concentration screen in the active-preincubation condition, plus about 1,500 twelve-point curves per isoform. The training dose-response matrix is sparse across isoforms. The test matrix is dense: 750 compounds measured against all four CYPs.
 
