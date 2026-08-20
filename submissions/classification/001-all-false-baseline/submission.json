@@ -5,7 +5,7 @@
   "slug": "all-false-baseline",
   "short_name": "All False baseline",
   "description": "Everything is false. Test of the submission script.",
-  "status": "submitted_processing",
+  "status": "scored",
   "prepared_at": "2026-08-19T19:14:26Z",
   "submitted_at": "2026-08-20T01:07:16.424317Z",
   "leaderboard_identity": "dargason",
@@ -24,12 +24,40 @@
     "job_id": "df26c80d9630",
     "schedule": "30m",
     "repeat": 8,
-    "state": "scheduled"
+    "state": "paused_scores_available_before_first_run"
   },
   "scores": {
-    "state": "pending_scoring",
-    "last_checked": null,
-    "source_fields": {},
-    "leaderboards": {}
+    "state": "scored",
+    "last_checked": "2026-08-20T01:16:45.504888Z",
+    "source_fields": {
+      "overall": ["MA-MCC", "MA-Accuracy", "MA-Precision", "MA-Recall", "MA-F1 Score"],
+      "endpoints": ["MCC", "Accuracy", "Precision", "Recall", "F1 Score"]
+    },
+    "leaderboards": {
+      "overall": {
+        "submitted": "2026-08-20 01:07 UTC",
+        "MA-MCC": 0.0,
+        "MA-Accuracy": 0.8189,
+        "MA-Precision": 0.0,
+        "MA-Recall": 0.0,
+        "MA-F1 Score": 0.0
+      },
+      "CYP2D6": {
+        "submitted": "2026-08-20 01:07 UTC",
+        "MCC": 0.0,
+        "Accuracy": 0.9294,
+        "Precision": 0.0,
+        "Recall": 0.0,
+        "F1 Score": 0.0
+      },
+      "CYP3A4": {
+        "submitted": "2026-08-20 01:07 UTC",
+        "MCC": 0.0,
+        "Accuracy": 0.7084,
+        "Precision": 0.0,
+        "Recall": 0.0,
+        "F1 Score": 0.0
+      }
+    }
   }
 }
