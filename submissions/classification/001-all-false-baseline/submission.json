@@ -5,15 +5,15 @@
   "slug": "all-false-baseline",
   "short_name": "All False baseline",
   "description": "Everything is false. Test of the submission script.",
-  "status": "mock_not_submitted",
+  "status": "submitted_processing",
   "prepared_at": "2026-08-19T19:14:26Z",
-  "submitted_at": null,
+  "submitted_at": "2026-08-20T01:07:16.424317Z",
   "leaderboard_identity": "dargason",
   "github_submission_log_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/classification/001-all-false-baseline/README.md",
   "model_report_url": "https://admet-cyp.aetherark.com/classification-submissions.html",
   "artifact": "openadmet-cyp_classification-sub_dargason_20260819T191426Z.csv",
   "artifact_sha256": "fba40166e9bcbd6140ed85a603adbb174170cccec9b8843e873710cd1eaa69a1",
-  "portal_receipt": "not submitted",
+  "portal_receipt": "Submission received from 'dargason' for the Classification Prediction track. Your predictions are being processed and should appear on the leaderboard within 2 hours.",
   "disclosures": {
     "anonymous": false,
     "proprietary_data": false,
@@ -21,12 +21,13 @@
     "method_report": "https://admet-cyp.aetherark.com/classification-submissions.html"
   },
   "cron": {
-    "job_id": null,
-    "schedule": null,
-    "repeat": 0
+    "job_id": "df26c80d9630",
+    "schedule": "30m",
+    "repeat": 8,
+    "state": "scheduled"
   },
   "scores": {
-    "state": "not_applicable_mock",
+    "state": "pending_scoring",
     "last_checked": null,
     "source_fields": {},
     "leaderboards": {}
