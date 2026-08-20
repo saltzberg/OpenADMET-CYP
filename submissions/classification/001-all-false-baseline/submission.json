@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track": "classification",
   "submission_number": 1,
   "slug": "all-false-baseline",
@@ -9,16 +9,47 @@
   "prepared_at": "2026-08-19T19:14:26Z",
   "submitted_at": "2026-08-20T01:07:16.424317Z",
   "leaderboard_identity": "dargason",
-  "github_submission_log_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/classification/001-all-false-baseline/README.md",
-  "model_report_url": "https://admet-cyp.aetherark.com/classification-submissions.html",
+  "github_model_report_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/classification/001-all-false-baseline/README.md",
+  "aetherark_method_report_url": "https://admet-cyp.aetherark.com/classification-submissions.html",
   "artifact": "openadmet-cyp_classification-sub_dargason_20260819T191426Z.csv",
   "artifact_sha256": "fba40166e9bcbd6140ed85a603adbb174170cccec9b8843e873710cd1eaa69a1",
-  "portal_receipt": "Submission received from 'dargason' for the Classification Prediction track. Your predictions are being processed and should appear on the leaderboard within 2 hours.",
+  "validation": {
+    "validator": "openadmet-cyp-submissions/scripts/validate_submission.py",
+    "validated_at": "2026-08-20T11:38:53.742936Z",
+    "test_sha256": "a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9",
+    "rows": 750,
+    "columns": ["SMILES", "Molecule_Name", "CYP2D6_is_TDI", "CYP3A4_is_TDI"]
+  },
   "disclosures": {
     "anonymous": false,
     "proprietary_data": false,
     "open_code": false,
     "method_report": "https://admet-cyp.aetherark.com/classification-submissions.html"
+  },
+  "gates": {
+    "github": {
+      "branch": "main",
+      "commit": "a1113d2d541dd32991aecc173348eeadf387ee9b",
+      "verified_at": "2026-08-20T11:39:16Z",
+      "remote_artifact_sha256": "fba40166e9bcbd6140ed85a603adbb174170cccec9b8843e873710cd1eaa69a1",
+      "model_report_http_status": 200
+    },
+    "aetherark": {
+      "branch": "master",
+      "commit": "2fef5ba54bef20c5c23429676a54520683a5a2d3",
+      "verified_at": "2026-08-20T11:39:16Z",
+      "method_report_http_status": 200
+    }
+  },
+  "approval": {
+    "approved_at": null,
+    "approved_artifact_sha256": "fba40166e9bcbd6140ed85a603adbb174170cccec9b8843e873710cd1eaa69a1",
+    "scope": "Historical explicit chat approval; exact approval timestamp was not retained."
+  },
+  "portal": {
+    "request_started_at": "2026-08-20T01:07:14.729816Z",
+    "response_received_at": "2026-08-20T01:07:16.424317Z",
+    "receipt": "Submission received from 'dargason' for the Classification Prediction track. Your predictions are being processed and should appear on the leaderboard within 2 hours."
   },
   "cron": {
     "job_id": "df26c80d9630",
