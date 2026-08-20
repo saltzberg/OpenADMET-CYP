@@ -1,25 +1,20 @@
-# Regression submission 1: constant 4.0 baseline
+# Constant 4.0 baseline
 
-Status: prepared; not submitted.
+This model predicts a direct-inhibition pIC50 of `4.0` for every compound and every CYP endpoint: CYP1A2, CYP2C9, CYP2D6, and CYP3A4.
 
-The script reads the shared blinded test set from `data/cyp-challenge-train-test/cyp-challenge-TEST-BLINDED.csv`, preserves its identifiers and row order, and sets all four direct-inhibition predictions to `4.0`.
+## Model
 
-- Prepared: `2026-08-19T19:14:26Z`
-- Submitted: not submitted
-- Leaderboard identity: `dargason`
-- Model report: `https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/regression/001-constant-4-baseline/README.md`
-- Artifact: `openadmet-cyp_regression-sub_dargason_20260819T191426Z.csv`
-- SHA-256: `42a27cbb800352d8c3d0506cbdc2a0199e6785d3c260b928a2ee81e2ea1666a2`
-- Proprietary data: no
-- Open-source declaration: no
+There is no training step and the model does not use molecular structure or assay data. It is a constant predictor at the assay's lower activity threshold.
 
-The script uses the repository's blinded test CSV when present. Otherwise it downloads the public blinded test set from Hugging Face and requires SHA-256 `a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9`.
+## Purpose
 
-Reproduce the exact artifact:
+The model is a submission-system smoke test and a deliberately simple reference point. It checks that compound identifiers, endpoint columns, file validation, scoring, and reporting all work end to end.
+
+Because every prediction is identical, the model cannot rank compounds. Its Spearman correlations should therefore carry no useful discrimination signal.
+
+## Reproduction
 
 ```bash
 python submissions/regression/001-constant-4-baseline/create_submission.py \
   --timestamp 20260819T191426Z
 ```
-
-The output is `openadmet-cyp_regression-sub_dargason_20260819T191426Z.csv` and must match the recorded SHA-256.
