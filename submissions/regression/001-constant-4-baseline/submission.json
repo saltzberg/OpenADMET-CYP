@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "track": "regression",
+  "submission_number": 1,
+  "slug": "constant-4-baseline",
+  "short_name": "Constant 4.0 baseline",
+  "description": "Literally every prediction is 4.0. Just for testing the submission script.",
+  "status": "prepared_not_submitted",
+  "prepared_at": "2026-08-19T19:14:26Z",
+  "submitted_at": null,
+  "leaderboard_identity": "dargason",
+  "model_report_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/regression/001-constant-4-baseline/README.md",
+  "artifact": "openadmet-cyp_regression-sub_dargason_20260819T191426Z.csv",
+  "artifact_sha256": "42a27cbb800352d8c3d0506cbdc2a0199e6785d3c260b928a2ee81e2ea1666a2",
+  "portal_receipt": "not submitted",
+  "disclosures": {
+    "anonymous": false,
+    "proprietary_data": false,
+    "open_code": false,
+    "method_report": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/regression/001-constant-4-baseline/README.md"
+  },
+  "cron": {
+    "job_id": null,
+    "schedule": null,
+    "repeat": 0
+  },
+  "scores": {
+    "state": "pending_submission",
+    "last_checked": null,
+    "source_fields": {},
+    "leaderboards": {}
+  }
+}
