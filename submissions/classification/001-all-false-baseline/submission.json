@@ -9,7 +9,8 @@
   "prepared_at": "2026-08-19T19:14:26Z",
   "submitted_at": null,
   "leaderboard_identity": "dargason",
-  "model_report_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/classification/001-all-false-baseline/README.md",
+  "github_submission_log_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/classification/001-all-false-baseline/README.md",
+  "model_report_url": "https://admet-cyp.aetherark.com/classification-submissions.html",
   "artifact": "openadmet-cyp_classification-sub_dargason_20260819T191426Z.csv",
   "artifact_sha256": "fba40166e9bcbd6140ed85a603adbb174170cccec9b8843e873710cd1eaa69a1",
   "portal_receipt": "not submitted",
@@ -17,7 +18,7 @@
     "anonymous": false,
     "proprietary_data": false,
     "open_code": false,
-    "method_report": ""
+    "method_report": "https://admet-cyp.aetherark.com/classification-submissions.html"
   },
   "cron": {
     "job_id": null,

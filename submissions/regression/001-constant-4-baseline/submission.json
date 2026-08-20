@@ -9,7 +9,8 @@
   "prepared_at": "2026-08-19T19:14:26Z",
   "submitted_at": "2026-08-20T00:28:56.198189Z",
   "leaderboard_identity": "dargason",
-  "model_report_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/regression/001-constant-4-baseline/README.md",
+  "github_submission_log_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/regression/001-constant-4-baseline/README.md",
+  "model_report_url": "https://admet-cyp.aetherark.com/regression-submissions.html",
   "artifact": "openadmet-cyp_regression-sub_dargason_20260819T191426Z.csv",
   "artifact_sha256": "42a27cbb800352d8c3d0506cbdc2a0199e6785d3c260b928a2ee81e2ea1666a2",
   "portal_receipt": "Submission received from 'dargason' for the Regression Prediction track. Your predictions are being processed and should appear on the leaderboard within 2 hours.",
@@ -17,7 +18,7 @@
     "anonymous": false,
     "proprietary_data": false,
     "open_code": false,
-    "method_report": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/regression/001-constant-4-baseline/README.md"
+    "method_report": "https://admet-cyp.aetherark.com/regression-submissions.html"
   },
   "cron": {
     "job_id": "976f7f92c75b",
