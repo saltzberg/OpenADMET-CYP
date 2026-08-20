@@ -28,36 +28,51 @@
   },
   "scores": {
     "state": "scored",
-    "last_checked": "2026-08-20T00:31:29.765357Z",
+    "last_checked": "2026-08-20T01:15:46.731735Z",
     "source_fields": {
-      "overall": ["MA-ST-RAE", "MA-Spearman's ρ"],
-      "endpoints": ["ST-RAE", "Spearman's ρ"]
+      "overall": ["MA-ST-RAE", "MA-MAE", "MA-R²", "MA-Spearman's ρ", "MA-Kendall's τ"],
+      "endpoints": ["ST-RAE", "MAE", "R²", "Spearman's ρ", "Kendall's τ"]
     },
     "leaderboards": {
       "overall": {
         "submitted": "2026-08-20 00:28 UTC",
-        "st_rae": 1.3132,
-        "spearman_rho": 0.0
+        "MA-ST-RAE": 1.3132,
+        "MA-MAE": 1.2516,
+        "MA-R²": -0.3728,
+        "MA-Spearman's ρ": 0.0,
+        "MA-Kendall's τ": 0.0
       },
       "CYP1A2": {
         "submitted": "2026-08-20 00:28 UTC",
-        "st_rae": 1.0886,
-        "spearman_rho": 0.0
+        "ST-RAE": 1.0886,
+        "MAE": 1.1826,
+        "R²": -0.0667,
+        "Spearman's ρ": 0.0,
+        "Kendall's τ": 0.0
       },
       "CYP2C9": {
         "submitted": "2026-08-20 00:28 UTC",
-        "st_rae": 1.6432,
-        "spearman_rho": 0.0
+        "ST-RAE": 1.6432,
+        "MAE": 1.0935,
+        "R²": -0.6467,
+        "Spearman's ρ": 0.0,
+        "Kendall's τ": 0.0
       },
       "CYP2D6": {
         "submitted": "2026-08-20 00:28 UTC",
-        "st_rae": 1.1188,
-        "spearman_rho": 0.0
+        "ST-RAE": 1.1188,
+        "MAE": 1.5491,
+        "R²": -0.3626,
+        "Spearman's ρ": 0.0,
+        "Kendall's τ": 0.0
       },
       "CYP3A4": {
         "submitted": "2026-08-20 00:28 UTC",
-        "st_rae": 1.4022,
-        "spearman_rho": 0.0
+        "ST-RAE": 1.4022,
+        "MAE": 1.1811,
+        "R²": -0.415,
+        "Spearman's ρ": 0.0,
+        "Kendall's τ": 0.0
       }
     }
   }
