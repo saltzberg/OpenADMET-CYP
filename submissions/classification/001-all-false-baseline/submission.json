@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "track": "classification",
+  "submission_number": 1,
+  "slug": "all-false-baseline",
+  "short_name": "All False baseline",
+  "description": "Everything is false. Test of the submission script.",
+  "status": "mock_not_submitted",
+  "prepared_at": "2026-08-19T19:14:26Z",
+  "submitted_at": null,
+  "leaderboard_identity": "dargason",
+  "model_report_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/classification/001-all-false-baseline/README.md",
+  "artifact": "openadmet-cyp_classification-sub_dargason_20260819T191426Z.csv",
+  "artifact_sha256": "fba40166e9bcbd6140ed85a603adbb174170cccec9b8843e873710cd1eaa69a1",
+  "portal_receipt": "not submitted",
+  "disclosures": {
+    "anonymous": false,
+    "proprietary_data": false,
+    "open_code": false,
+    "method_report": ""
+  },
+  "cron": {
+    "job_id": null,
+    "schedule": null,
+    "repeat": 0
+  },
+  "scores": {
+    "state": "not_applicable_mock",
+    "last_checked": null,
+    "source_fields": {},
+    "leaderboards": {}
+  }
+}
