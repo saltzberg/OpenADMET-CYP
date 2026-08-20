@@ -5,7 +5,7 @@
   "slug": "constant-4-baseline",
   "short_name": "Constant 4.0 baseline",
   "description": "Literally every prediction is 4.0. Just for testing the submission script.",
-  "status": "submitted_processing",
+  "status": "scored",
   "prepared_at": "2026-08-19T19:14:26Z",
   "submitted_at": "2026-08-20T00:28:56.198189Z",
   "leaderboard_identity": "dargason",
@@ -22,12 +22,42 @@
   "cron": {
     "job_id": "976f7f92c75b",
     "schedule": "30m",
-    "repeat": 8
+    "repeat": 8,
+    "state": "paused_scores_available_before_first_run"
   },
   "scores": {
-    "state": "pending_scoring",
-    "last_checked": null,
-    "source_fields": {},
-    "leaderboards": {}
+    "state": "scored",
+    "last_checked": "2026-08-20T00:31:29.765357Z",
+    "source_fields": {
+      "overall": ["MA-ST-RAE", "MA-Spearman's ρ"],
+      "endpoints": ["ST-RAE", "Spearman's ρ"]
+    },
+    "leaderboards": {
+      "overall": {
+        "submitted": "2026-08-20 00:28 UTC",
+        "st_rae": 1.3132,
+        "spearman_rho": 0.0
+      },
+      "CYP1A2": {
+        "submitted": "2026-08-20 00:28 UTC",
+        "st_rae": 1.0886,
+        "spearman_rho": 0.0
+      },
+      "CYP2C9": {
+        "submitted": "2026-08-20 00:28 UTC",
+        "st_rae": 1.6432,
+        "spearman_rho": 0.0
+      },
+      "CYP2D6": {
+        "submitted": "2026-08-20 00:28 UTC",
+        "st_rae": 1.1188,
+        "spearman_rho": 0.0
+      },
+      "CYP3A4": {
+        "submitted": "2026-08-20 00:28 UTC",
+        "st_rae": 1.4022,
+        "spearman_rho": 0.0
+      }
+    }
   }
 }
