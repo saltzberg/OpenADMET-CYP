@@ -4,13 +4,11 @@ This model predicts a direct-inhibition pIC50 of `4.0` for every compound and ev
 
 ## Model
 
-There is no training step and the model does not use molecular structure or assay data. It is a constant predictor at the assay's lower activity threshold.
+Just set everything to 4.0
 
 ## Purpose
 
-The model is a submission-system smoke test and a deliberately simple reference point. It checks that compound identifiers, endpoint columns, file validation, scoring, and reporting all work end to end.
-
-Because every prediction is identical, the model cannot rank compounds. Its Spearman correlations should therefore carry no useful discrimination signal.
+This is to test the submission scripts.  
 
 ## Reproduction
 
