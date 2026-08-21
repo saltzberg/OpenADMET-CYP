@@ -1,0 +1,101 @@
+{
+  "created_at_utc": "2026-08-20T22:29:38.807217+00:00",
+  "model": "CypReact v1.2 public reactant classifier",
+  "release": "https://github.com/Le0nT1/CypReact_old/releases/tag/1.2",
+  "release_zip_sha256": "2778b65dc786125a9f6af489d599f6de6bbe81952f3d484285d0dc73370da48f",
+  "license": "MIT (current CypReact repository); historical bundle retained as released",
+  "score_semantics": "faithful public R/N call encoded N=0 and R=1; not a continuous probability",
+  "input_csv": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/data/model_input.csv",
+  "input_sha256": "7a7cb5d559dda51797ac62b8d98f4618b3f4b3b1deb026517877f0d29784c277",
+  "input_rows": 4822,
+  "scored_rows": 4821,
+  "failure_rows": 1,
+  "representation": "original supplied SMILES converted to an ID-labelled RDKit SDF",
+  "endpoints": [
+    "CYP2D6",
+    "CYP3A4"
+  ],
+  "command": [
+    "java",
+    "-jar",
+    "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/cypreact.jar",
+    "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/",
+    "predictions/raw/cypreact_work/cypreact_input.sdf",
+    "predictions/raw/cypreact_work/cypreact_output.csv",
+    "2D6,3A4"
+  ],
+  "runtime": {
+    "python": "3.12.0",
+    "rdkit": "2026.03.2",
+    "java": "openjdk version \"1.8.0_492\"\nOpenJDK Runtime Environment (build 1.8.0_492-8u492-ga~us2-0ubuntu1~24.04.1-b09)\nOpenJDK 64-Bit Server VM (build 25.492-b09, mixed mode)"
+  },
+  "assets": [
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/cypreact.jar",
+      "size": 59369085,
+      "sha256": "79ae5048d55c287128d036096b5b34d40f069efd9645b7b2e2f01f5ab2dc359c"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP2D6/supportfile.csv",
+      "size": 19948,
+      "sha256": "f0b976df0c3838c77f1ac0a860980355c6f91d96f3a140a21035be0a04646cbe"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP3A4/supportfile.csv",
+      "size": 38595,
+      "sha256": "18e07b1045ee8ae2333ec182e9d806cd7a57c207ba4108aefaf41c6b00199e8d"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP2D6/model/2D6_NR_0.model",
+      "size": 1269486,
+      "sha256": "97d2e31ba48877d2099736a426fada5b9191250f440687b8e88964696453b700"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP2D6/model/2D6_NR_1.model",
+      "size": 1303168,
+      "sha256": "f66584f2b068de4826a21c900fb3e32732ce9754510a2ed9194a7108a3bba5cc"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP2D6/model/2D6_NR_2.model",
+      "size": 1206545,
+      "sha256": "327ed4908186aebe54f38b202aeb1288c362c9f5efa82d68f18f8dd3262601c0"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP2D6/model/2D6_NR_3.model",
+      "size": 1265092,
+      "sha256": "dd684b5376d13016090bbe4976ff8ebe32d19a7c1eb8f11ed807af0a8e73f8fc"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP2D6/model/2D6_NR_4.model",
+      "size": 1236653,
+      "sha256": "64e32e03e1e891e7ac3881581d5e25b88bec0b9c9dcfe22cb4c9f0aa3771d3a8"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP3A4/model/3A4_NR.model",
+      "size": 3811000,
+      "sha256": "c7923302bb005fde548d5f424194252214be70eedba2288198f4b39b0a5e5d0b"
+    }
+  ],
+  "outputs": {
+    "predictions": {
+      "path": "predictions/raw/cypreact.csv",
+      "sha256": "e364e4a38380d52862877153cc94b85d678294372673c493979c3c6b4c99a47d"
+    },
+    "failures": {
+      "path": "predictions/raw/cypreact.failures.csv",
+      "sha256": "4f04fe1c9f33bb742125fab044b7c90242044336a503d38a985e03f86707c4d0"
+    },
+    "input_sdf": {
+      "path": "predictions/raw/cypreact_work/cypreact_input.sdf",
+      "sha256": "18a8ddf46c58141aebf2f0791e69aac2bff856721cef3e510646b826610b06fd"
+    },
+    "raw_output": {
+      "path": "predictions/raw/cypreact_work/cypreact_output.csv",
+      "sha256": "705c474c476ed8978f015aff295a99cb75332d0d259d52cb5bebc955cce8931b"
+    },
+    "log": {
+      "path": "predictions/raw/cypreact_work/cypreact.log",
+      "sha256": "0872780189c6e4c21a12b27848e1f37c85df60dfc8ca6f8e619d3f43d6c229fb"
+    }
+  }
+}

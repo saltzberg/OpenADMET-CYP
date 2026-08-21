@@ -1,0 +1,189 @@
+{
+  "created_at_utc": "2026-08-21T01:03:04.511331+00:00",
+  "model": "CYPMol substrate ensemble",
+  "task": "substrate",
+  "git_revision": "0c6657dc882f23293ff9a43977c8f31818f8a6f8",
+  "hf_revision": "3810a93e04d1dbab4cde73792a1e3830b1f17e41",
+  "score_semantics": "mean class-1 substrate score across 10 published checkpoints",
+  "input_csv": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/data/model_input.csv",
+  "input_sha256": "7a7cb5d559dda51797ac62b8d98f4618b3f4b3b1deb026517877f0d29784c277",
+  "input_rows": 4822,
+  "scored_rows": 4820,
+  "failure_rows": 2,
+  "representation": "original supplied SMILES; authors' AddHs/ETKDG randomSeed=42/MMFF/heavy-atom Uni-Mol preprocessing",
+  "endpoint_context": {
+    "CYP2D6": {
+      "sequence": "MGLEALVPLAVIVAIFLLLVDLMHRRQRWAARYPPGPLPLPGLGNLLHVDFQNTPYCFDQLRRRFGDVFSLQLAWTPVVVLNGLAAVREALVTHGEDTADRPPVPITQILGFGPRSQGVFLARYGPAWREQRRFSVSTLRNLGLGKKSLEQWVTEEAACLCAAFANHSGRPFRPNGLLDKAVSNVIASLTCGRRFEYDDPRFLRLLDLAQEGLKEESGFLREVLNAVPVLLHIPALAGKVLRFQKAFLTQLDELLTEHRMTWDPAQPPRDLTEAFLAEMEKAKGNPESSFNDENLRIVVADLFSAGMVTTSTTLAWGLLLMILHPDVQRRVQQEIDDVIGQVRRPEMGDQAHMPYTTAVIHEVQRFGDIVPLGVTHMTSRDIEVQGFRIPKGTTLITNLSSVLKDEAVWEKPFRFHPEHFLDAQGHFVKPEAFLPFSAGRRACLGEPLARMELFLFFTSLLQHFSFSVPTGQPRPSHHGVFAFLVSPSPYELCAVPR",
+      "pocket": [
+        110,
+        120,
+        212,
+        216,
+        244,
+        248,
+        300,
+        301,
+        304,
+        305,
+        309,
+        483
+      ],
+      "srs": [
+        97,
+        125,
+        206,
+        231,
+        238,
+        247,
+        293,
+        308,
+        368,
+        377,
+        477,
+        486
+      ]
+    },
+    "CYP3A4": {
+      "sequence": "MALIPDLAMETWLLLAVSLVLLYLYGTHSHGLFKKLGIPGPTPLPFLGNILSYHKGFCMFDMECHKKYGKVWGFYDGQQPVLAITDPDMIKTVLVKECYSVFTNRRPFGPVGFMKSAISIAEDEEWKRLRSLLSPTFTSGKLKEMVPIIAQYGDVLVRNLRREAETGKPVTLKDVFGAYSMDVITSTSFGVNIDSLNNPQDPFVENTKKLLRFDFLDPFFLSITVFPFLIPILEVLNICVFPREVTNFLRKSVKRMKESRLEDTQKHRVDFLQLMIDSQNSKETESHKALSDLELVAQSIIFIFAGYETTSSVLSFIMYELATHPDVQQKLQEEIDAVLPNKAPPTYDTVLQMEYLDMVVNETLRLFPIAMRLERVCKKDVEINGMFIPKGVVVMIPSYALHRDPKYWTEPEKFLPERFSKKNKDNIDPYIYTPFGSGPRNCIGMRFALMNMKLALIRVLQNFSFKPCKETQIPLKLSLGGLLQPEKPVVLKVESRDGTVSGA",
+      "pocket": [
+        76,
+        105,
+        106,
+        107,
+        108,
+        119,
+        120,
+        210,
+        212,
+        213,
+        215,
+        220,
+        241,
+        301,
+        304,
+        305,
+        309,
+        370,
+        371,
+        372,
+        374,
+        481,
+        482
+      ],
+      "srs": [
+        101,
+        123,
+        204,
+        211,
+        238,
+        244,
+        294,
+        312,
+        368,
+        376,
+        476,
+        485
+      ]
+    }
+  },
+  "batch_size": 6,
+  "checkpoint_count": 10,
+  "checkpoints": [
+    {
+      "checkpoint": "new_sequence_srs_pocket_sub1.pt",
+      "checkpoint_sha256": "7318ce99ada7610cdcc0d3abeaf82eacc7b546558c51ba55646d39c0b10e9d60",
+      "checkpoint_size": 2809879744,
+      "ids": 4820,
+      "output_sha256": "3bf645374bec05c6786b97b82bebf34138a63dddfd3dd08894c41b1c4eb1a0b1"
+    },
+    {
+      "checkpoint": "new_sequence_srs_pocket_sub2.pt",
+      "checkpoint_sha256": "21ca9ca221052951ccb69c864b7421765cb9ea85efb979169531e0232fe902b0",
+      "checkpoint_size": 2809879744,
+      "ids": 4820,
+      "output_sha256": "6d5fb7f4dfd5d3bcb25fb061c40f23914a0c769baff62ee37bbc02e73e0c4c6f"
+    },
+    {
+      "checkpoint": "new_sequence_srs_pocket_sub3.pt",
+      "checkpoint_sha256": "81b0c2f8b40d4aab1fbaa11fcb6459b5ab6c26b6747d2a09adf8c884b8972240",
+      "checkpoint_size": 2809879744,
+      "ids": 4820,
+      "output_sha256": "d752a14f4516d455d01f94441766384383bac6c07dac3496977de22899603a65"
+    },
+    {
+      "checkpoint": "new_sequence_srs_pocket_sub5.pt",
+      "checkpoint_sha256": "1f10a19329df76455b3badde7d18979988b6878a6845c8e342220d17357050e9",
+      "checkpoint_size": 2809879744,
+      "ids": 4820,
+      "output_sha256": "bc09365e83659a7bfe8f0d0d00dfc06e8e281404862b458c054ed49027f04fd9"
+    },
+    {
+      "checkpoint": "new_sequence_srs_pocket_sub6.pt",
+      "checkpoint_sha256": "aba3166f52866f0730f93689afa6f5450845d13f4e06efc01012f1fa77ba1fbf",
+      "checkpoint_size": 2809879744,
+      "ids": 4820,
+      "output_sha256": "69e466aa381398294f5bb577a298f85157f08e6ab747546df9468a305dcdc271"
+    },
+    {
+      "checkpoint": "new_sequence_srs_pocket_sub10.pt",
+      "checkpoint_sha256": "20ce435baf4073ea6f6c5fbd9a6ef6d9ecb2c1bd57c33b2731fb8dbe67bbb847",
+      "checkpoint_size": 2809880546,
+      "ids": 4820,
+      "output_sha256": "72959fd9f5a7d999c4ad6913da2b9dbfe68648f12c8daee6b6cafd6bccb4c6e8"
+    },
+    {
+      "checkpoint": "new_sequence_srs_pocket_sub11.pt",
+      "checkpoint_sha256": "e50990acd4656e51e1196b1ef124f24c78e738971f26ace26af7ffac96c0b0b2",
+      "checkpoint_size": 2809880546,
+      "ids": 4820,
+      "output_sha256": "f4743618926eee22b5af0c241385d18b173d96bdce61b467ac85fb39d9e89155"
+    },
+    {
+      "checkpoint": "new_sequence_srs_pocket_sub13.pt",
+      "checkpoint_sha256": "af9a411a02dd135a42c76b184060897e954019e9f1d7400306d8f2d5f05f9091",
+      "checkpoint_size": 2809880546,
+      "ids": 4820,
+      "output_sha256": "0ea6c414d6ba939b96b4cf8c4e7b82e10887b5123581a2bde8fa8e7dea820411"
+    },
+    {
+      "checkpoint": "new_sequence_srs_pocket_sub15.pt",
+      "checkpoint_sha256": "151c675515cfc1feaf47b11cbb4ecca5f054fc87749fbe150b1c89954db066ff",
+      "checkpoint_size": 2809880546,
+      "ids": 4820,
+      "output_sha256": "11dcbb40f8fa1223f82268f089272ff3f31671041631de78482cf2b399526b71"
+    },
+    {
+      "checkpoint": "new_sequence_srs_pocket_sub16.pt",
+      "checkpoint_sha256": "fbb90c7eb27fc3014e4f0b525f33bbac052e34aabaf6655f2f405ed0a3987d9e",
+      "checkpoint_size": 2809880546,
+      "ids": 4820,
+      "output_sha256": "5672ec99f08bc8383aac63ddc8dff25815f975b109ca7c4b4e18777eee31adce"
+    }
+  ],
+  "runtime": {
+    "python": "3.10.20",
+    "packages": {
+      "torch": "2.11.0+cu128",
+      "fair-esm": "2.0.0",
+      "rdkit": "2026.3.2",
+      "numpy": "2.2.6",
+      "pandas": "2.3.3"
+    },
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti"
+  },
+  "outputs": {
+    "predictions": {
+      "path": "predictions/raw/cypmol_substrate.csv",
+      "sha256": "4df568c53b29048e645c243b7d111f119e6d6ccdec11f846bd89c0e9224582c1"
+    },
+    "failures": {
+      "path": "predictions/raw/cypmol.failures.csv",
+      "sha256": "0874866aba53ac54e1b51fb836a83fad4c6e771c6c91e4be2742555d59540d75"
+    },
+    "conformer_cache": {
+      "path": "predictions/raw/cypmol_work/conformers.pkl",
+      "sha256": "1f4a8b1f6a8846052e133890315af5ff8e2e9da040cef6cff8bd20cb7866a36f"
+    }
+  }
+}

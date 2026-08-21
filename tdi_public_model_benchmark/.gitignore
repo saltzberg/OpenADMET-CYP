@@ -1,0 +1,18 @@
+# Generated benchmark artifacts
+outputs/
+predictions/raw/*.csv
+predictions/raw/*_work/
+predictions/raw/*.sdf
+data/tdi_labels.csv
+data/model_input.csv
+data/label_manifest.json
+
+# Local upstream model checkouts and environments
+vendor/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/

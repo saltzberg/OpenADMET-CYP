@@ -1,0 +1,118 @@
+{
+  "created_at_utc": "2026-08-21T01:58:36.405038+00:00",
+  "package_version": "0.1.0",
+  "labels_path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/data/tdi_labels.csv",
+  "labels_sha256": "28b05c58f6fb6dc537e10b1a0c57213943cdca848c46ab9008aa277b9245543f",
+  "registry_path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/config/model_registry.csv",
+  "registry_sha256": "63a9af1cb14d553c6f9811e0da65e810a492778b34bbeaf9837e48e399edee3c",
+  "bootstrap": {
+    "unit": "Bemis-Murcko scaffold cluster over the full labelled endpoint universe",
+    "replicates": 2000,
+    "seed": 20260820,
+    "confidence": 0.95,
+    "interval": "percentile"
+  },
+  "metric_definitions": {
+    "primary": "pr_auc_average_precision (sklearn average_precision_score)",
+    "roc_auc": "sklearn roc_auc_score",
+    "coverage": "finite scored labelled molecules / all labelled molecules for endpoint",
+    "enrichment": "positive rate in ceil(fraction * n_scored) / scored-set prevalence",
+    "ranking_ties": "fractional expected inclusion when the top-k boundary cuts a score tie"
+  },
+  "comparisons": [
+    {
+      "model": "CYPMol",
+      "score_name": "substrate_score",
+      "endpoint": "CYP2D6",
+      "prediction_path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/predictions/raw/cypmol_substrate.csv",
+      "prediction_sha256": "4df568c53b29048e645c243b7d111f119e6d6ccdec11f846bd89c0e9224582c1",
+      "score_column": "CYP2D6_substrate_score",
+      "score_direction": "higher",
+      "source_revision": "git:0c6657dc882f23293ff9a43977c8f31818f8a6f8|hf:3810a93e04d1dbab4cde73792a1e3830b1f17e41",
+      "notes": "Mean class-1 substrate score across ten checkpoints; strict full-state Blackwell inference"
+    },
+    {
+      "model": "CYPMol",
+      "score_name": "inhibitor_score",
+      "endpoint": "CYP2D6",
+      "prediction_path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/predictions/raw/cypmol_inhibitor.csv",
+      "prediction_sha256": "7199b105bc7ee2cc2e0734df35d9805b031713fa8817938c28718db2f3d91b03",
+      "score_column": "CYP2D6_inhibitor_score",
+      "score_direction": "higher",
+      "source_revision": "git:0c6657dc882f23293ff9a43977c8f31818f8a6f8|hf:3810a93e04d1dbab4cde73792a1e3830b1f17e41",
+      "notes": "Mean class-1 inhibitor score across ten checkpoints; strict full-state Blackwell inference"
+    },
+    {
+      "model": "CYPMol",
+      "score_name": "substrate_score",
+      "endpoint": "CYP3A4",
+      "prediction_path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/predictions/raw/cypmol_substrate.csv",
+      "prediction_sha256": "4df568c53b29048e645c243b7d111f119e6d6ccdec11f846bd89c0e9224582c1",
+      "score_column": "CYP3A4_substrate_score",
+      "score_direction": "higher",
+      "source_revision": "git:0c6657dc882f23293ff9a43977c8f31818f8a6f8|hf:3810a93e04d1dbab4cde73792a1e3830b1f17e41",
+      "notes": "Mean class-1 substrate score across ten checkpoints; strict full-state Blackwell inference"
+    },
+    {
+      "model": "CYPMol",
+      "score_name": "inhibitor_score",
+      "endpoint": "CYP3A4",
+      "prediction_path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/predictions/raw/cypmol_inhibitor.csv",
+      "prediction_sha256": "7199b105bc7ee2cc2e0734df35d9805b031713fa8817938c28718db2f3d91b03",
+      "score_column": "CYP3A4_inhibitor_score",
+      "score_direction": "higher",
+      "source_revision": "git:0c6657dc882f23293ff9a43977c8f31818f8a6f8|hf:3810a93e04d1dbab4cde73792a1e3830b1f17e41",
+      "notes": "Mean class-1 inhibitor score across ten checkpoints; strict full-state Blackwell inference"
+    },
+    {
+      "model": "DeepMetab",
+      "score_name": "substrate_score",
+      "endpoint": "CYP2D6",
+      "prediction_path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/predictions/raw/deepmetab.csv",
+      "prediction_sha256": "8552da25bfd5a1b3460fa66fc59d5698f8adefa2a2c09012fcabfdea53dd15fe",
+      "score_column": "CYP2D6_substrate_score",
+      "score_direction": "higher",
+      "source_revision": "git:78c7511327f1a4042b61a64c44d35abb4c4b6b9c",
+      "notes": "Unthresholded mean ChemProp score across five public multitask checkpoints; strict readout-to-ffn key mapping"
+    },
+    {
+      "model": "DeepMetab",
+      "score_name": "substrate_score",
+      "endpoint": "CYP3A4",
+      "prediction_path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/predictions/raw/deepmetab.csv",
+      "prediction_sha256": "8552da25bfd5a1b3460fa66fc59d5698f8adefa2a2c09012fcabfdea53dd15fe",
+      "score_column": "CYP3A4_substrate_score",
+      "score_direction": "higher",
+      "source_revision": "git:78c7511327f1a4042b61a64c44d35abb4c4b6b9c",
+      "notes": "Unthresholded mean ChemProp score across five public multitask checkpoints; strict readout-to-ffn key mapping"
+    },
+    {
+      "model": "CypReact",
+      "score_name": "cypreact_public_score",
+      "endpoint": "CYP2D6",
+      "prediction_path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/predictions/raw/cypreact.csv",
+      "prediction_sha256": "e364e4a38380d52862877153cc94b85d678294372673c493979c3c6b4c99a47d",
+      "score_column": "CYP2D6_cypreact_public_score",
+      "score_direction": "higher",
+      "source_revision": "release:v1.2|zip:2778b65dc786125a9f6af489d599f6de6bbe81952f3d484285d0dc73370da48f",
+      "notes": "Faithful public R/N output encoded 1/0; CYP2D6 internal vote fraction is not exported"
+    },
+    {
+      "model": "CypReact",
+      "score_name": "cypreact_public_score",
+      "endpoint": "CYP3A4",
+      "prediction_path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/predictions/raw/cypreact.csv",
+      "prediction_sha256": "e364e4a38380d52862877153cc94b85d678294372673c493979c3c6b4c99a47d",
+      "score_column": "CYP3A4_cypreact_public_score",
+      "score_direction": "higher",
+      "source_revision": "release:v1.2|zip:2778b65dc786125a9f6af489d599f6de6bbe81952f3d484285d0dc73370da48f",
+      "notes": "Faithful public R/N output encoded 1/0; no continuous score is exposed"
+    }
+  ],
+  "outputs": {
+    "metrics.csv": "15a95440d040cd15bb4129d6499ccccf828beef2b8014088c77c3a7e4fd752f5",
+    "enrichment.csv": "938d571142de45afcd9596e44df8d639199ea157c2e0f83174ec0ee6e2c947be",
+    "bootstrap_metrics.csv": "c2a4c01febf5968904e1bed6d534208c1d9aec02d3aa4a100cd2eec3f222ddc7",
+    "joined_predictions.csv": "803828aca2548c5286fc5e4c8c0fdb526f8d9f68f2e2dfa7b275b1dff90520ac"
+  }
+}

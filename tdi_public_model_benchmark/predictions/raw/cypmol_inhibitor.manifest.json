@@ -1,0 +1,163 @@
+{
+  "created_at_utc": "2026-08-21T01:06:12.798196+00:00",
+  "model": "CYPMol inhibitor ensemble",
+  "task": "inhibitor",
+  "git_revision": "0c6657dc882f23293ff9a43977c8f31818f8a6f8",
+  "hf_revision": "3810a93e04d1dbab4cde73792a1e3830b1f17e41",
+  "score_semantics": "mean class-1 inhibitor score across 10 published checkpoints",
+  "input_csv": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/data/model_input.csv",
+  "input_sha256": "7a7cb5d559dda51797ac62b8d98f4618b3f4b3b1deb026517877f0d29784c277",
+  "input_rows": 4822,
+  "scored_rows": 4820,
+  "failure_rows": 2,
+  "representation": "original supplied SMILES; authors' AddHs/ETKDG randomSeed=42/MMFF/heavy-atom Uni-Mol preprocessing",
+  "endpoint_context": {
+    "CYP2D6": {
+      "sequence": "MGLEALVPLAVIVAIFLLLVDLMHRRQRWAARYPPGPLPLPGLGNLLHVDFQNTPYCFDQLRRRFGDVFSLQLAWTPVVVLNGLAAVREALVTHGEDTADRPPVPITQILGFGPRSQGVFLARYGPAWREQRRFSVSTLRNLGLGKKSLEQWVTEEAACLCAAFANHSGRPFRPNGLLDKAVSNVIASLTCGRRFEYDDPRFLRLLDLAQEGLKEESGFLREVLNAVPVLLHIPALAGKVLRFQKAFLTQLDELLTEHRMTWDPAQPPRDLTEAFLAEMEKAKGNPESSFNDENLRIVVADLFSAGMVTTSTTLAWGLLLMILHPDVQRRVQQEIDDVIGQVRRPEMGDQAHMPYTTAVIHEVQRFGDIVPLGVTHMTSRDIEVQGFRIPKGTTLITNLSSVLKDEAVWEKPFRFHPEHFLDAQGHFVKPEAFLPFSAGRRACLGEPLARMELFLFFTSLLQHFSFSVPTGQPRPSHHGVFAFLVSPSPYELCAVPR",
+      "pocket": [
+        110,
+        120,
+        212,
+        216,
+        244,
+        248,
+        300,
+        301,
+        304,
+        305,
+        309,
+        483
+      ],
+      "srs": null
+    },
+    "CYP3A4": {
+      "sequence": "MALIPDLAMETWLLLAVSLVLLYLYGTHSHGLFKKLGIPGPTPLPFLGNILSYHKGFCMFDMECHKKYGKVWGFYDGQQPVLAITDPDMIKTVLVKECYSVFTNRRPFGPVGFMKSAISIAEDEEWKRLRSLLSPTFTSGKLKEMVPIIAQYGDVLVRNLRREAETGKPVTLKDVFGAYSMDVITSTSFGVNIDSLNNPQDPFVENTKKLLRFDFLDPFFLSITVFPFLIPILEVLNICVFPREVTNFLRKSVKRMKESRLEDTQKHRVDFLQLMIDSQNSKETESHKALSDLELVAQSIIFIFAGYETTSSVLSFIMYELATHPDVQQKLQEEIDAVLPNKAPPTYDTVLQMEYLDMVVNETLRLFPIAMRLERVCKKDVEINGMFIPKGVVVMIPSYALHRDPKYWTEPEKFLPERFSKKNKDNIDPYIYTPFGSGPRNCIGMRFALMNMKLALIRVLQNFSFKPCKETQIPLKLSLGGLLQPEKPVVLKVESRDGTVSGA",
+      "pocket": [
+        76,
+        105,
+        106,
+        107,
+        108,
+        119,
+        120,
+        210,
+        212,
+        213,
+        215,
+        220,
+        241,
+        301,
+        304,
+        305,
+        309,
+        370,
+        371,
+        372,
+        374,
+        481,
+        482
+      ],
+      "srs": null
+    }
+  },
+  "batch_size": 6,
+  "checkpoint_count": 10,
+  "checkpoints": [
+    {
+      "checkpoint": "inhi_seq_pocket_sub0.pt",
+      "checkpoint_sha256": "c87819104b2ac56bfc59e971d18bd7d875226ef4ced77edf9f0b0137aae543a9",
+      "checkpoint_size": 2809851908,
+      "ids": 4820,
+      "output_sha256": "92ee9576d1bbbac43ae2fa29d41abf573358f462ace81347d521960195123751"
+    },
+    {
+      "checkpoint": "inhi_seq_pocket_sub1.pt",
+      "checkpoint_sha256": "2139b5438555838e7fefa22256946d68b7efb0380078120faac0789620f9557a",
+      "checkpoint_size": 2809851908,
+      "ids": 4820,
+      "output_sha256": "03ca659ee847f365895cfdd3aed49b6495bf5f522b5a4e58ec0931020632ba8e"
+    },
+    {
+      "checkpoint": "inhi_seq_pocket_sub2.pt",
+      "checkpoint_sha256": "996d748d7462f9fdb7bd59183ba90b45ae96e85a89839799b97c9ffa823d5745",
+      "checkpoint_size": 2809851908,
+      "ids": 4820,
+      "output_sha256": "745ba1aea77a255195dcdd25911c923301f38cdfb6b908b596ac5e5b91dd3899"
+    },
+    {
+      "checkpoint": "inhi_seq_pocket_sub3.pt",
+      "checkpoint_sha256": "ce94f4c62c4b9d4788a109d164531ea4a66aa48ab21b931d9bb8d677406d7403",
+      "checkpoint_size": 2809851908,
+      "ids": 4820,
+      "output_sha256": "427f9f1afa9f7e1c50d45d49bf264cebe8a26a1b8d0954f78508528930d5860c"
+    },
+    {
+      "checkpoint": "inhi_seq_pocket_sub4.pt",
+      "checkpoint_sha256": "e3e9733e8522c2738c734fe7abb79b504da320c4d3816aa4de52796c105e67a2",
+      "checkpoint_size": 2809851908,
+      "ids": 4820,
+      "output_sha256": "81a391066e323329126edcbb6e8f34775963a4a0538c3f3b156a19df97241441"
+    },
+    {
+      "checkpoint": "inhi_seq_pocket_sub7.pt",
+      "checkpoint_sha256": "543afbe2cfe442ddad6fb95c5882ecdf50b1c9f11a1de447169cfe5b9f3e7b81",
+      "checkpoint_size": 2809851908,
+      "ids": 4820,
+      "output_sha256": "db29cb64c7ffddb75d9140284227c3710e4237f8ea103c130c9c41e068d02c70"
+    },
+    {
+      "checkpoint": "inhi_seq_pocket_sub9.pt",
+      "checkpoint_sha256": "1231f33242b1820e3abb98d0424ea0fb02f810661312fd860038a0f006269140",
+      "checkpoint_size": 2809851908,
+      "ids": 4820,
+      "output_sha256": "630ae026952f349ad9fadd6520c9aca64c446e061418842054290309719916b7"
+    },
+    {
+      "checkpoint": "inhi_seq_pocket_sub10.pt",
+      "checkpoint_sha256": "2012e0a9815461213aa9d2d3fd925d8fe3a9bcae3d511ba1cffdd89f636b76e6",
+      "checkpoint_size": 2809852706,
+      "ids": 4820,
+      "output_sha256": "5cd07fe81170ca52dcd1b8957e026cb90db85100fc0f82ce050a069b0f606992"
+    },
+    {
+      "checkpoint": "inhi_seq_pocket_sub12.pt",
+      "checkpoint_sha256": "9eb93aa0e8a9d0323f5c4476d2954b5d2362dbfb22cc8a3b78f31249d75710fa",
+      "checkpoint_size": 2809852706,
+      "ids": 4820,
+      "output_sha256": "1adbf62620c76b606bca5e120e9cb1fed08653eddfef2529d81cf41c85a2e678"
+    },
+    {
+      "checkpoint": "inhi_seq_pocket_sub15.pt",
+      "checkpoint_sha256": "891e313a367214faa73e0ab7c01074c218acccf09354333b6dbac82130fd902b",
+      "checkpoint_size": 2809852706,
+      "ids": 4820,
+      "output_sha256": "3d29c9db738e9c6921024271721e6606899739103a4be600691878c2e1a4c9dc"
+    }
+  ],
+  "runtime": {
+    "python": "3.10.20",
+    "packages": {
+      "torch": "2.11.0+cu128",
+      "fair-esm": "2.0.0",
+      "rdkit": "2026.3.2",
+      "numpy": "2.2.6",
+      "pandas": "2.3.3"
+    },
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti"
+  },
+  "outputs": {
+    "predictions": {
+      "path": "predictions/raw/cypmol_inhibitor.csv",
+      "sha256": "7199b105bc7ee2cc2e0734df35d9805b031713fa8817938c28718db2f3d91b03"
+    },
+    "failures": {
+      "path": "predictions/raw/cypmol.failures.csv",
+      "sha256": "0874866aba53ac54e1b51fb836a83fad4c6e771c6c91e4be2742555d59540d75"
+    },
+    "conformer_cache": {
+      "path": "predictions/raw/cypmol_work/conformers.pkl",
+      "sha256": "1f4a8b1f6a8846052e133890315af5ff8e2e9da040cef6cff8bd20cb7866a36f"
+    }
+  }
+}

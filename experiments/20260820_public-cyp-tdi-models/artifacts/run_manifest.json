@@ -1,0 +1,62 @@
+{
+  "status": "experiment_only_not_submitted",
+  "created_at_utc": "2026-08-21T01:58:36.766432+00:00",
+  "experiment_id": "20260820_public-cyp-tdi-models",
+  "completed_models": [
+    "DeepMetab substrate score",
+    "CypReact public reactant score",
+    "CYPMol substrate score",
+    "CYPMol inhibitor score"
+  ],
+  "pending_models": [],
+  "deferred_models": [
+    "DeepP450 substrate"
+  ],
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260820,
+  "source_files": {
+    "tdi_public_model_benchmark/outputs/public_models_v4/metrics.csv": "15a95440d040cd15bb4129d6499ccccf828beef2b8014088c77c3a7e4fd752f5",
+    "tdi_public_model_benchmark/outputs/public_models_v4/enrichment.csv": "938d571142de45afcd9596e44df8d639199ea157c2e0f83174ec0ee6e2c947be",
+    "tdi_public_model_benchmark/outputs/public_models_v4/bootstrap_metrics.csv": "c2a4c01febf5968904e1bed6d534208c1d9aec02d3aa4a100cd2eec3f222ddc7",
+    "tdi_public_model_benchmark/outputs/public_models_v4/joined_predictions.csv": "803828aca2548c5286fc5e4c8c0fdb526f8d9f68f2e2dfa7b275b1dff90520ac",
+    "tdi_public_model_benchmark/outputs/public_models_v4/run_manifest.json": "0b06468ea5e0237cfeaf65ffc52b300b12e431e0b37f0e9eff72a89630c3eb7c",
+    "tdi_public_model_benchmark/predictions/raw/deepmetab.csv": "8552da25bfd5a1b3460fa66fc59d5698f8adefa2a2c09012fcabfdea53dd15fe",
+    "tdi_public_model_benchmark/predictions/raw/deepmetab.failures.csv": "989fc674a7ce747705529a1615990902148f4a0621ba16770c3c1c85f2fb051a",
+    "tdi_public_model_benchmark/predictions/raw/deepmetab.manifest.json": "be00676beea6a7a0f3aa7bbf7705edbcdaa209754fe27e440c94be3c2d5403cb",
+    "tdi_public_model_benchmark/predictions/raw/cypreact.csv": "e364e4a38380d52862877153cc94b85d678294372673c493979c3c6b4c99a47d",
+    "tdi_public_model_benchmark/predictions/raw/cypreact.failures.csv": "4f04fe1c9f33bb742125fab044b7c90242044336a503d38a985e03f86707c4d0",
+    "tdi_public_model_benchmark/predictions/raw/cypreact.manifest.json": "b370916d7856f3268263303e023e3b597cbae3ad25458ab15a237a7727bf26f8",
+    "tdi_public_model_benchmark/predictions/raw/cypmol_substrate.csv": "4df568c53b29048e645c243b7d111f119e6d6ccdec11f846bd89c0e9224582c1",
+    "tdi_public_model_benchmark/predictions/raw/cypmol_substrate.manifest.json": "ba5483192ec404c5d2f93d27216d20db1747e28f7a374370f8e827651dc96ec6",
+    "tdi_public_model_benchmark/predictions/raw/cypmol_inhibitor.csv": "7199b105bc7ee2cc2e0734df35d9805b031713fa8817938c28718db2f3d91b03",
+    "tdi_public_model_benchmark/predictions/raw/cypmol_inhibitor.manifest.json": "98ebc007820e03199aa08bb97e54be227df543f9c93df3e3d3344655c7d0c30b",
+    "tdi_public_model_benchmark/predictions/raw/cypmol.failures.csv": "0874866aba53ac54e1b51fb836a83fad4c6e771c6c91e4be2742555d59540d75",
+    "tdi_public_model_benchmark/config/model_registry.csv": "63a9af1cb14d553c6f9811e0da65e810a492778b34bbeaf9837e48e399edee3c",
+    "tdi_public_model_benchmark/src/tdi_public_model_benchmark/deepmetab.py": "da9a59ffc1d54b45cd582b42fb270c8960391538029730ef50135c74e7ec9891",
+    "tdi_public_model_benchmark/src/tdi_public_model_benchmark/cypreact.py": "43375ff9109d4aef7335a8527d71c9376832fc2676101d2c91979ea531acadc7",
+    "tdi_public_model_benchmark/src/tdi_public_model_benchmark/cypmol.py": "992cebc56e658a4722d58b45f0bfba3f42b4a6a440870be2076290a688409b41",
+    "tdi_public_model_benchmark/src/tdi_public_model_benchmark/evaluation.py": "b4cf096edb17201e2ddc460213cb68ded149e583a9700bb04ad57f3d441517f3",
+    "tdi_public_model_benchmark/src/tdi_public_model_benchmark/data.py": "c62ecec383adbcabc50ed5bac23f5795f5c324b4ec09bb2bd3345000eeebbd73",
+    "tdi_public_model_benchmark/src/tdi_public_model_benchmark/cli.py": "c20b24edf97177bb9223dcf75dcab93fc59cc9241f79759adc063fdb41ffb8dc"
+  },
+  "outputs": {
+    "artifacts/metrics.csv": "15a95440d040cd15bb4129d6499ccccf828beef2b8014088c77c3a7e4fd752f5",
+    "artifacts/enrichment.csv": "938d571142de45afcd9596e44df8d639199ea157c2e0f83174ec0ee6e2c947be",
+    "artifacts/bootstrap_metrics.csv": "c2a4c01febf5968904e1bed6d534208c1d9aec02d3aa4a100cd2eec3f222ddc7",
+    "artifacts/joined_predictions.csv": "803828aca2548c5286fc5e4c8c0fdb526f8d9f68f2e2dfa7b275b1dff90520ac",
+    "artifacts/benchmark_run_manifest.json": "0b06468ea5e0237cfeaf65ffc52b300b12e431e0b37f0e9eff72a89630c3eb7c",
+    "artifacts/deepmetab_predictions.csv": "8552da25bfd5a1b3460fa66fc59d5698f8adefa2a2c09012fcabfdea53dd15fe",
+    "artifacts/deepmetab_failures.csv": "989fc674a7ce747705529a1615990902148f4a0621ba16770c3c1c85f2fb051a",
+    "artifacts/inference_manifest.json": "be00676beea6a7a0f3aa7bbf7705edbcdaa209754fe27e440c94be3c2d5403cb",
+    "artifacts/cypreact_predictions.csv": "e364e4a38380d52862877153cc94b85d678294372673c493979c3c6b4c99a47d",
+    "artifacts/cypreact_failures.csv": "4f04fe1c9f33bb742125fab044b7c90242044336a503d38a985e03f86707c4d0",
+    "artifacts/cypreact_inference_manifest.json": "b370916d7856f3268263303e023e3b597cbae3ad25458ab15a237a7727bf26f8",
+    "artifacts/cypmol_substrate_predictions.csv": "4df568c53b29048e645c243b7d111f119e6d6ccdec11f846bd89c0e9224582c1",
+    "artifacts/cypmol_substrate_manifest.json": "ba5483192ec404c5d2f93d27216d20db1747e28f7a374370f8e827651dc96ec6",
+    "artifacts/cypmol_inhibitor_predictions.csv": "7199b105bc7ee2cc2e0734df35d9805b031713fa8817938c28718db2f3d91b03",
+    "artifacts/cypmol_inhibitor_manifest.json": "98ebc007820e03199aa08bb97e54be227df543f9c93df3e3d3344655c7d0c30b",
+    "artifacts/cypmol_failures.csv": "0874866aba53ac54e1b51fb836a83fad4c6e771c6c91e4be2742555d59540d75",
+    "artifacts/model_registry.csv": "63a9af1cb14d553c6f9811e0da65e810a492778b34bbeaf9837e48e399edee3c",
+    "index.html": "e756d7b9836a62c07eb4c7f6b08b3c8da530e169b20a87055a1dc1a550135bf2"
+  }
+}

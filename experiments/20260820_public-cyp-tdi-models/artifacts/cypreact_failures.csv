@@ -1,0 +1,2 @@
+Molecule_Name,model_smiles,failure
+OCNT-2328840,COC1=CC=CC=C1OCC(O)CO,not_returned_by_cypreact
