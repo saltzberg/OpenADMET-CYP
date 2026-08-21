@@ -1,0 +1,101 @@
+{
+  "created_at_utc": "2026-08-21T13:26:59.788271+00:00",
+  "model": "CypReact v1.2 public reactant classifier",
+  "release": "https://github.com/Le0nT1/CypReact_old/releases/tag/1.2",
+  "release_zip_sha256": "2778b65dc786125a9f6af489d599f6de6bbe81952f3d484285d0dc73370da48f",
+  "license": "MIT (current CypReact repository); historical bundle retained as released",
+  "score_semantics": "faithful public R/N call encoded N=0 and R=1; not a continuous probability",
+  "input_csv": "/home/dan/projects/ADMET-CYP/data/cyp-challenge-train-test/cyp-challenge-TEST-BLINDED.csv",
+  "input_sha256": "a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9",
+  "input_rows": 750,
+  "scored_rows": 750,
+  "failure_rows": 0,
+  "representation": "original supplied SMILES converted to an ID-labelled RDKit SDF",
+  "endpoints": [
+    "CYP2D6",
+    "CYP3A4"
+  ],
+  "command": [
+    "java",
+    "-jar",
+    "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/cypreact.jar",
+    "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/",
+    "/home/dan/projects/ADMET-CYP/submissions/classification/002-cypreact-raw/inference_work/cypreact_input.sdf",
+    "/home/dan/projects/ADMET-CYP/submissions/classification/002-cypreact-raw/inference_work/cypreact_output.csv",
+    "2D6,3A4"
+  ],
+  "runtime": {
+    "python": "3.12.0",
+    "rdkit": "2026.03.2",
+    "java": "openjdk version \"1.8.0_492\"\nOpenJDK Runtime Environment (build 1.8.0_492-8u492-ga~us2-0ubuntu1~24.04.1-b09)\nOpenJDK 64-Bit Server VM (build 25.492-b09, mixed mode)"
+  },
+  "assets": [
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/cypreact.jar",
+      "size": 59369085,
+      "sha256": "79ae5048d55c287128d036096b5b34d40f069efd9645b7b2e2f01f5ab2dc359c"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP2D6/supportfile.csv",
+      "size": 19948,
+      "sha256": "f0b976df0c3838c77f1ac0a860980355c6f91d96f3a140a21035be0a04646cbe"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP3A4/supportfile.csv",
+      "size": 38595,
+      "sha256": "18e07b1045ee8ae2333ec182e9d806cd7a57c207ba4108aefaf41c6b00199e8d"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP2D6/model/2D6_NR_0.model",
+      "size": 1269486,
+      "sha256": "97d2e31ba48877d2099736a426fada5b9191250f440687b8e88964696453b700"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP2D6/model/2D6_NR_1.model",
+      "size": 1303168,
+      "sha256": "f66584f2b068de4826a21c900fb3e32732ce9754510a2ed9194a7108a3bba5cc"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP2D6/model/2D6_NR_2.model",
+      "size": 1206545,
+      "sha256": "327ed4908186aebe54f38b202aeb1288c362c9f5efa82d68f18f8dd3262601c0"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP2D6/model/2D6_NR_3.model",
+      "size": 1265092,
+      "sha256": "dd684b5376d13016090bbe4976ff8ebe32d19a7c1eb8f11ed807af0a8e73f8fc"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP2D6/model/2D6_NR_4.model",
+      "size": 1236653,
+      "sha256": "64e32e03e1e891e7ac3881581d5e25b88bec0b9c9dcfe22cb4c9f0aa3771d3a8"
+    },
+    {
+      "path": "/home/dan/projects/ADMET-CYP/tdi_public_model_benchmark/vendor/CypReact/CypReactBundle/supportfiles/CYP3A4/model/3A4_NR.model",
+      "size": 3811000,
+      "sha256": "c7923302bb005fde548d5f424194252214be70eedba2288198f4b39b0a5e5d0b"
+    }
+  ],
+  "outputs": {
+    "predictions": {
+      "path": "/home/dan/projects/ADMET-CYP/submissions/classification/002-cypreact-raw/cypreact_predictions.csv",
+      "sha256": "f69d27ee35284fbf95be3a70667240ef49fb7ed923ce2cfd571b909bc70e9110"
+    },
+    "failures": {
+      "path": "/home/dan/projects/ADMET-CYP/submissions/classification/002-cypreact-raw/inference_failures.csv",
+      "sha256": "989fc674a7ce747705529a1615990902148f4a0621ba16770c3c1c85f2fb051a"
+    },
+    "input_sdf": {
+      "path": "/home/dan/projects/ADMET-CYP/submissions/classification/002-cypreact-raw/inference_work/cypreact_input.sdf",
+      "sha256": "f49946a8cccec8030e59fbd852f454ad098a5c52cb8caf039eb704c44dbed5f2"
+    },
+    "raw_output": {
+      "path": "/home/dan/projects/ADMET-CYP/submissions/classification/002-cypreact-raw/inference_work/cypreact_output.csv",
+      "sha256": "48762a9287ed317f919233b7fe62ae8c735c66616a7013c6f05b8ee5fbffc8c1"
+    },
+    "log": {
+      "path": "/home/dan/projects/ADMET-CYP/submissions/classification/002-cypreact-raw/inference_work/cypreact.log",
+      "sha256": "ca67eb8eb05f16391bc6bf18573b04d5fcdce6b01ad739cdcbae45cd4972e184"
+    }
+  }
+}

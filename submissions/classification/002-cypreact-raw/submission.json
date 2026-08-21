@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "track": "classification",
+  "submission_number": 2,
+  "slug": "cypreact-raw",
+  "short_name": "CypReact v1.2 raw calls",
+  "description": "Frozen CypReact v1.2 R/N reactant calls mapped directly to TDI classification outputs.",
+  "status": "prepared_not_submitted",
+  "prepared_at": "2026-08-21T02:19:06Z",
+  "submitted_at": null,
+  "leaderboard_identity": "dargason",
+  "github_model_report_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/classification/002-cypreact-raw/README.md",
+  "aetherark_method_report_url": "https://admet-cyp.aetherark.com/classification-submissions.html",
+  "artifact": "openadmet-cyp_classification-sub_dargason_20260821T021607Z.csv",
+  "artifact_sha256": "e85906101f568c11a72dd4cccf2ebe8212f9c8c77f327d3a9242c9e844f8a2aa",
+  "validation": {
+    "validator": "openadmet-cyp-submissions/scripts/validate_submission.py",
+    "validated_at": "2026-08-21T02:20:55.349897Z",
+    "test_sha256": "a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9",
+    "rows": 750,
+    "columns": [
+      "SMILES",
+      "Molecule_Name",
+      "CYP2D6_is_TDI",
+      "CYP3A4_is_TDI"
+    ]
+  },
+  "disclosures": {
+    "anonymous": false,
+    "proprietary_data": false,
+    "open_code": true,
+    "method_report": "https://admet-cyp.aetherark.com/classification-submissions.html"
+  },
+  "gates": {
+    "github": {
+      "branch": "main",
+      "commit": null,
+      "verified_at": null,
+      "remote_artifact_sha256": null,
+      "model_report_http_status": null
+    },
+    "aetherark": {
+      "branch": "master",
+      "commit": null,
+      "verified_at": null,
+      "method_report_http_status": null
+    }
+  },
+  "approval": {
+    "approved_at": null,
+    "approved_artifact_sha256": null,
+    "scope": null
+  },
+  "portal": {
+    "request_started_at": null,
+    "response_received_at": null,
+    "receipt": null
+  },
+  "cron": {
+    "job_id": null,
+    "schedule": "30m",
+    "repeat": 8,
+    "state": "not_scheduled"
+  },
+  "scores": {
+    "state": "pending",
+    "last_checked": null,
+    "leaderboards": {}
+  }
+}
