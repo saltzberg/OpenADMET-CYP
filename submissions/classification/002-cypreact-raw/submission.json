@@ -47,9 +47,9 @@
     }
   },
   "approval": {
-    "approved_at": null,
-    "approved_artifact_sha256": null,
-    "scope": null
+    "approved_at": "2026-08-21T14:09:43Z",
+    "approved_artifact_sha256": "e85906101f568c11a72dd4cccf2ebe8212f9c8c77f327d3a9242c9e844f8a2aa",
+    "scope": "Explicit live approval after both GitHub and AetherArk hard gates for exactly one Classification Prediction submission as dargason; alias/full name/Discord/email/affiliation blank; anonymous=false; proprietary_data=false; open_code=true; include_in_future_publication=false; Method Report=https://admet-cyp.aetherark.com/classification-submissions.html."
   },
   "portal": {
     "request_started_at": null,
