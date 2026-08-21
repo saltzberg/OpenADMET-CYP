@@ -60,7 +60,7 @@
     "job_id": "68459cde5e0c",
     "schedule": "30m",
     "repeat": 8,
-    "state": "scheduled"
+    "state": "paused_scored"
   },
   "scores": {
     "state": "scored",
