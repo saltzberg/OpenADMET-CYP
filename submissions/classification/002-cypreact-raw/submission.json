@@ -5,9 +5,9 @@
   "slug": "cypreact-raw",
   "short_name": "CypReact v1.2 raw calls",
   "description": "Frozen CypReact v1.2 R/N reactant calls mapped directly to TDI classification outputs.",
-  "status": "prepared_not_submitted",
+  "status": "submitted_pending_scores",
   "prepared_at": "2026-08-21T02:19:06Z",
-  "submitted_at": null,
+  "submitted_at": "2026-08-21T14:11:05.320958Z",
   "leaderboard_identity": "dargason",
   "github_model_report_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/classification/002-cypreact-raw/README.md",
   "aetherark_method_report_url": "https://admet-cyp.aetherark.com/classification-submissions.html",
@@ -52,9 +52,9 @@
     "scope": "Explicit live approval after both GitHub and AetherArk hard gates for exactly one Classification Prediction submission as dargason; alias/full name/Discord/email/affiliation blank; anonymous=false; proprietary_data=false; open_code=true; include_in_future_publication=false; Method Report=https://admet-cyp.aetherark.com/classification-submissions.html."
   },
   "portal": {
-    "request_started_at": null,
-    "response_received_at": null,
-    "receipt": null
+    "request_started_at": "2026-08-21T14:11:01.089181Z",
+    "response_received_at": "2026-08-21T14:11:05.320958Z",
+    "receipt": "Submission received from 'dargason' for the Classification Prediction track. Your predictions are being processed and should appear on the leaderboard within 2 hours."
   },
   "cron": {
     "job_id": null,
