@@ -1,0 +1,73 @@
+2026-08-21 01:11:28.131 | INFO     | openadmet.models.inference.inference:predict:178 - Starting prediction
+2026-08-21 01:11:28.131 | INFO     | openadmet.models.inference.inference:predict:179 - Input path: /home/dan/projects/ADMET-CYP/data/cyp-challenge-train-test/cyp-challenge-TRAIN_inhibition.csv
+2026-08-21 01:11:28.131 | INFO     | openadmet.models.inference.inference:predict:180 - Model directories: ('/home/dan/projects/ADMET-CYP/cyp_feature_store/models/openadmet_cyp_chemeleon_v1/anvil_training',)
+2026-08-21 01:11:28.131 | INFO     | openadmet.models.inference.inference:predict:181 - Write CSV: True
+2026-08-21 01:11:28.131 | INFO     | openadmet.models.inference.inference:predict:182 - Output CSV: /home/dan/projects/ADMET-CYP/experiments/20260821_OA-CYP-native-zero-shot/artifacts/native_train_raw.csv
+2026-08-21 01:11:28.131 | INFO     | openadmet.models.inference.inference:predict:183 - Input column: SMILES
+2026-08-21 01:11:28.131 | INFO     | openadmet.models.inference.inference:predict:184 - Accelerator: gpu
+2026-08-21 01:11:28.136 | INFO     | openadmet.models.inference.inference:predict:210 - Model directories: ('/home/dan/projects/ADMET-CYP/cyp_feature_store/models/openadmet_cyp_chemeleon_v1/anvil_training',)
+2026-08-21 01:11:28.137 | INFO     | openadmet.models.inference.inference:predict:220 - Loading model 0 from /home/dan/projects/ADMET-CYP/cyp_feature_store/models/openadmet_cyp_chemeleon_v1/anvil_training
+2026-08-21 01:11:29.455 | INFO     | openadmet.models.architecture.chemprop:_download_chemeleon:774 - Loading cached CheMeleon from /home/dan/.chemprop/chemeleon_mp.pt
+2026-08-21 01:11:29.469 | WARNING  | openadmet.models.architecture.chemprop:build:641 - Using CheMeleon overrides settings for depth, message_hidden_dim, messages, and aggregation
+2026-08-21 01:11:29.490 | WARNING  | openadmet.models.architecture.chemprop:build:653 - Using a foundation model overrides settings for depth, message_hidden_dim, messages, and aggregation
+2026-08-21 01:11:29.518 | INFO     | openadmet.models.inference.inference:predict:232 - Loaded model 0 from /home/dan/projects/ADMET-CYP/cyp_feature_store/models/openadmet_cyp_chemeleon_v1/anvil_training
+2026-08-21 01:11:29.518 | INFO     | openadmet.models.inference.inference:predict:235 - Model 0 has tasks: ['OPENADMET_LOGAC50_CYP3A4', 'OPENADMET_LOGAC50_CYP2D6', 'OPENADMET_LOGAC50_CYP2C9', 'OPENADMET_LOGAC50_CYP1A2']
+2026-08-21 01:11:29.518 | DEBUG    | openadmet.models.inference.inference:predict:237 - Model metadata:
+2026-08-21 01:11:29.518 | DEBUG    | openadmet.models.inference.inference:predict:238 - version='v1' driver='pytorch' name='chemprop_pchembl' build_number=0 description='basic regression using a ChemProp multitask task model' tag='chemprop' authors='Cynthia Xu' email='cynthia.xu@omsf.io' biotargets=['CYP3A4', 'CYP2D6', 'CYP2D9', 'CYP1A2'] tags=['openadmet', 'example', 'chemprop']
+2026-08-21 01:11:29.518 | DEBUG    | openadmet.models.inference.inference:predict:239 - Model: MPNN(
+  (message_passing): BondMessagePassing(
+    (W_i): Linear(in_features=86, out_features=2048, bias=False)
+    (W_h): Linear(in_features=2048, out_features=2048, bias=False)
+    (W_o): Linear(in_features=2120, out_features=2048, bias=True)
+    (dropout): Dropout(p=0.0, inplace=False)
+    (tau): ReLU()
+    (V_d_transform): Identity()
+    (graph_transform): Identity()
+  )
+  (agg): MeanAggregation()
+  (bn): Identity()
+  (predictor): RegressionFFN(
+    (ffn): MLP(
+      (0): Sequential(
+        (0): Linear(in_features=2048, out_features=1024, bias=True)
+      )
+      (1): Sequential(
+        (0): ReLU()
+        (1): Dropout(p=0.1, inplace=False)
+        (2): Linear(in_features=1024, out_features=1024, bias=True)
+      )
+      (2): Sequential(
+        (0): ReLU()
+        (1): Dropout(p=0.1, inplace=False)
+        (2): Linear(in_features=1024, out_features=1024, bias=True)
+      )
+      (3): Sequential(
+        (0): ReLU()
+        (1): Dropout(p=0.1, inplace=False)
+        (2): Linear(in_features=1024, out_features=4, bias=True)
+      )
+    )
+    (criterion): MSE(task_weights=[[1.0, 1.0, 1.0, 1.0]])
+    (output_transform): UnscaleTransform()
+  )
+  (X_d_transform): Identity()
+  (metrics): ModuleList(
+    (0): MSE(task_weights=[[1.0]])
+    (1): MAE(task_weights=[[1.0]])
+    (2): RMSE(task_weights=[[1.0]])
+    (3): MSE(task_weights=[[1.0, 1.0, 1.0, 1.0]])
+  )
+)
+2026-08-21 01:11:29.518 | DEBUG    | openadmet.models.inference.inference:predict:240 - Feature: random_seed=None normalize_targets=True n_jobs=4 batch_size=128 shuffle=False
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+💡 Tip: For seamless cloud uploads and versioning, try installing [litmodels](https://pypi.org/project/litmodels/) to enable LitModelCheckpoint, which syncs automatically with the Lightning model registry.
+You are using a CUDA device ('NVIDIA GeForce RTX 5070 Ti') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+2026-08-21 01:11:31.041 | INFO     | openadmet.models.inference.inference:predict:283 - Predictions for model 0 task 0 saved to column 'OADMET_PRED_chemprop_OPENADMET_LOGAC50_CYP3A4', std saved to column 'OADMET_STD_chemprop_OPENADMET_LOGAC50_CYP3A4'
+2026-08-21 01:11:31.042 | INFO     | openadmet.models.inference.inference:predict:283 - Predictions for model 0 task 1 saved to column 'OADMET_PRED_chemprop_OPENADMET_LOGAC50_CYP2D6', std saved to column 'OADMET_STD_chemprop_OPENADMET_LOGAC50_CYP2D6'
+2026-08-21 01:11:31.042 | INFO     | openadmet.models.inference.inference:predict:283 - Predictions for model 0 task 2 saved to column 'OADMET_PRED_chemprop_OPENADMET_LOGAC50_CYP2C9', std saved to column 'OADMET_STD_chemprop_OPENADMET_LOGAC50_CYP2C9'
+2026-08-21 01:11:31.043 | INFO     | openadmet.models.inference.inference:predict:283 - Predictions for model 0 task 3 saved to column 'OADMET_PRED_chemprop_OPENADMET_LOGAC50_CYP1A2', std saved to column 'OADMET_STD_chemprop_OPENADMET_LOGAC50_CYP1A2'
+2026-08-21 01:11:31.043 | INFO     | openadmet.models.inference.inference:predict:299 - Finished prediction
+2026-08-21 01:11:31.043 | INFO     | openadmet.models.inference.inference:predict:300 - Predictions saved to /home/dan/projects/ADMET-CYP/experiments/20260821_OA-CYP-native-zero-shot/artifacts/native_train_raw.csv

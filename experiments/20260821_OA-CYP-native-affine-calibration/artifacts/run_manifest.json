@@ -1,0 +1,64 @@
+{
+  "status": "completed_experiment_not_submission",
+  "experiment_id": "20260821_OA-CYP-native-affine-calibration",
+  "completed_at_utc": "2026-08-21T12:15:48.638705+00:00",
+  "experiment_level": "adapted_native_model_affine_only",
+  "challenge_fitted_stages": [
+    "endpoint-specific OLS affine intercept+slope"
+  ],
+  "frozen_stages": [
+    "released CYP-finetuned CheMeleon encoder",
+    "released native four-output FFN"
+  ],
+  "parameters": {
+    "outer_folds": 5,
+    "outer_fold_source": "experiments/20260820_OA-CYP-finetuned-chemeleon/artifacts/fold_manifest.csv",
+    "bootstrap_group": "scaffold_id",
+    "bootstrap_replicates": 2000,
+    "seed": 20260821,
+    "calibrator": "ordinary least-squares intercept+slope",
+    "clipping": false,
+    "blind_label_use": false
+  },
+  "metric": "ST-RAE = sum distance outside reported confidence interval / sum absolute deviation of observed point estimates from endpoint mean; MA is the unweighted mean across four endpoints",
+  "decision_rule_implementation": "MET iff point-estimate macro delta (affine minus raw) < 0 and no endpoint paired-bootstrap 95% interval is wholly above 0",
+  "decision_rule_met": true,
+  "commands": {
+    "run": "/home/dan/swr/miniconda3/envs/cheminf/bin/python src/run_experiment.py",
+    "test": "/home/dan/swr/miniconda3/envs/cheminf/bin/python src/test_experiment.py",
+    "verify": "/home/dan/swr/miniconda3/envs/cheminf/bin/python src/verify_outputs.py"
+  },
+  "source_files": {
+    "experiments/20260821_OA-CYP-native-zero-shot/artifacts/native_train_scored.parquet": "cfe0601ce1f4b1703a2bb7f7725b1e391cb2e088a0f980c4034ec5cdfb866e28",
+    "experiments/20260821_OA-CYP-native-zero-shot/artifacts/native_blind_predictions.csv": "d1c3f4050cac248841b744fa46e0cdcb53665c5d8e8ef1a04796ee4242a4f234",
+    "experiments/20260820_OA-CYP-finetuned-chemeleon/artifacts/fold_manifest.csv": "4c6d9cd92e77939a7775419f5a33190512ae681c75ead669721939222c878160"
+  },
+  "runtime": {
+    "executable": "/home/dan/swr/miniconda3/envs/cheminf/bin/python",
+    "python": "3.12.0 | packaged by Anaconda, Inc. | (main, Oct  2 2023, 17:29:18) [GCC 11.2.0]",
+    "platform": "Linux-6.8.0-134-generic-x86_64-with-glibc2.39",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "sklearn": "1.8.0",
+    "matplotlib": "3.10.8"
+  },
+  "outputs": {
+    "README.md": "0722de35ff6d19d09fbb6d347813fcd36c6b2880c5e642b80f5350365b96f088",
+    "artifacts/affine_coefficients.csv": "12572bb4ad96e5cb43f66eb652af37bd2d428e4b32f1b91430d69de6c206ed68",
+    "artifacts/calibrated_blind_predictions.csv": "415480832c7485ff56c0f979e9bcf6660764034c1964cc6d68bd3216006a592a",
+    "artifacts/linear_fit_scatter_source.csv": "6a80448952a8e30b4a2721746ebb775cf8fb6d3b91ca7ab3922afbf2714098d0",
+    "artifacts/metrics.csv": "692db1d546149632e87d27db94de7872a3455a6c8c328a59688ac138f50338b4",
+    "artifacts/oof_predictions.parquet": "e2ad2a8d613094e60a3bf439329439d1895ef3f82b246df830f8c2e376b44e56",
+    "artifacts/paired_bootstrap_replicates.parquet": "f5e5f5e4f32a800a7aa5897dec76e8e8b44bdea8dc6b28d36984feada84d9f6a",
+    "artifacts/paired_bootstrap_summary.csv": "ed9929caefef5e6b03bff0b4143566fa674c53133ea44e341a467bacfbf3ad74",
+    "figures/01_prediction_flow.png": "f18c692bbf1c45a681c3417ba1f41d727f9f97dfdfa2fb26fc33d45a78d52b17",
+    "figures/01_prediction_flow.svg": "e2c290cd74e556f1f647a5d5799b30c9421ca0042ac4d3465878c0313fe4570b",
+    "figures/02_linear_fit_vs_observed.png": "eb85ff2f5a29682fe5b50c56b14999eaf0f67514d9a5778284dfbce002864c9c",
+    "figures/02_linear_fit_vs_observed.svg": "fe9520c78b4dcdb2c11e681f710d335dff8cc75e654d9b12f6500c7d845ea2c0",
+    "index.html": "cded24e29af70a1672960f1270b18a9769342f7d4ccc8b968c0afed7f29ba039",
+    "src/run_experiment.py": "bd93ca082d40cda5aba38c66801faab41d067b5c96f94032d0aff616de206230",
+    "src/test_experiment.py": "48dc4fa25e365b4fdc085e4cd542979666aedb57aac128d2a20958b15d8d9c25",
+    "src/verify_outputs.py": "238787785e24fdf066a0587272bb59e528ada82cb06907c9da9e2b08113db52a"
+  }
+}

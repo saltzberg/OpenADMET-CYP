@@ -2,20 +2,20 @@
   "schema_version": 2,
   "track": "regression",
   "submission_number": 2,
-  "slug": "native-head-affine-calibration",
-  "short_name": "Native-head affine calibration",
-  "description": "Released OpenADMET native CYP predictions with endpoint-specific affine calibration fitted on challenge training data.",
+  "slug": "OADMET-CYP-chemeleon_linear-fit",
+  "short_name": "002-OADMET-CYP-chemeleon_linear-fit",
+  "description": "OpenADMET CYP CheMeleon predictions with one linear fit per endpoint using challenge training data.",
   "status": "prepared_not_submitted",
   "prepared_at": "2026-08-21T02:11:38Z",
   "submitted_at": null,
   "leaderboard_identity": "dargason",
-  "github_model_report_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/regression/002-native-head-affine-calibration/README.md",
+  "github_model_report_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/regression/002-OADMET-CYP-chemeleon_linear-fit/README.md",
   "aetherark_method_report_url": "https://admet-cyp.aetherark.com/regression-submissions.html",
   "artifact": "openadmet-cyp_regression-sub_dargason_20260821T021138Z.csv",
   "artifact_sha256": "28c3a57c268654d25e9af6ec1c29f12ff9aff94f1d3717d342ed3fc899f8293d",
   "validation": {
     "validator": "openadmet-cyp-submissions/scripts/validate_submission.py",
-    "validated_at": "2026-08-21T02:13:12.208725Z",
+    "validated_at": "2026-08-21T12:20:25.111605Z",
     "test_sha256": "a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9",
     "rows": 750,
     "columns": ["SMILES", "Molecule_Name", "CYP1A2_pIC50_direct_inhibition", "CYP2C9_pIC50_direct_inhibition", "CYP2D6_pIC50_direct_inhibition", "CYP3A4_pIC50_direct_inhibition"]
@@ -29,16 +29,16 @@
   "gates": {
     "github": {
       "branch": "main",
-      "commit": "77293ed890ccab52c05e2df63a832942e9277fe0",
-      "verified_at": "2026-08-21T12:03:10Z",
-      "remote_artifact_sha256": "28c3a57c268654d25e9af6ec1c29f12ff9aff94f1d3717d342ed3fc899f8293d",
-      "model_report_http_status": 200
+      "commit": null,
+      "verified_at": null,
+      "remote_artifact_sha256": null,
+      "model_report_http_status": null
     },
     "aetherark": {
       "branch": "master",
-      "commit": "f6d2436536496dcf46ae817cd64df21744e67448",
-      "verified_at": "2026-08-21T02:17:42Z",
-      "method_report_http_status": 200
+      "commit": null,
+      "verified_at": null,
+      "method_report_http_status": null
     }
   },
   "approval": {

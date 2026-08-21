@@ -1,4 +1,4 @@
-# Linear scaling of OpenADMET-trained ChemEleon weights
+# 002-OADMET-CYP-chemeleon_linear-fit
 
 This submission applies an endpoint-specific linear calibration to predictions from the pretrained [OpenADMET ChEMBL 37 CYP CheMeleon model](https://huggingface.co/openadmet/cyp1a2-cyp2d6-cyp3a4-cyp2c9-chemeleon-v1).  
 
@@ -44,6 +44,12 @@ The final coefficients are:
 
 Raw predictions from the public ChEMBL-trained model exhibited systematic scale and baseline shifts relative to the challenge assay distribution. Fitting a simple linear post-processing step somewhat corrects this assay-level domain shift by adjusting the mean and variance. Each final endpoint scaling uses a positive slope, so it does not change the compound ranking for the submitted predictions.
 
+### Training predictions versus truth
+
+![Four panels comparing linear-fit OOF pIC50 predictions with observed training pIC50](figures/training_predictions_vs_truth.png)
+
+Each point is one out-of-fold training prediction. The diagonal is perfect agreement.
+
 ## Limitations and Observations
 
 - ChEMBL pIC50 records and the challenge assays are not directly comparable.
@@ -54,13 +60,17 @@ Raw predictions from the public ChEMBL-trained model exhibited systematic scale 
 Install the [OpenADMET model runtime](https://github.com/OpenADMET/openadmet-models), download the released model directory, then run:
 
 ```bash
-python submissions/regression/002-native-head-affine-calibration/reproduce_from_model.py \
+python submissions/regression/002-OADMET-CYP-chemeleon_linear-fit/reproduce_from_model.py \
   --test-csv data/cyp-challenge-train-test/cyp-challenge-TEST-BLINDED.csv \
   --model-dir /path/to/cyp1a2-cyp2d6-cyp3a4-cyp2c9-chemeleon-v1/anvil_training \
-  --coefficients submissions/regression/002-native-head-affine-calibration/affine_coefficients.csv \
+  --coefficients submissions/regression/002-OADMET-CYP-chemeleon_linear-fit/affine_coefficients.csv \
   --output reproduced.csv \
   --accelerator cpu
 ```
+
+## Full experiment
+
+The [full experiment record](https://github.com/saltzberg/OpenADMET-CYP/blob/main/experiments/20260821_OA-CYP-native-affine-calibration/README.md) contains the preregistered hypothesis, complete OOF predictions, bootstrap results, fold-specific and final coefficients, detailed metrics, source code, tests, verifier, and run manifest. The submission folder keeps only the concise model report, final coefficients, reproduction code, figure, metadata, and submitted CSV.
 
 ---
 

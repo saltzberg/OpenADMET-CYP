@@ -1,0 +1,77 @@
+{
+  "status": "completed_zero_shot",
+  "created_at_utc": "2026-08-21T01:11:36.738785+00:00",
+  "experiment_id": "20260821_OA-CYP-native-zero-shot",
+  "challenge_label_training": false,
+  "prediction_flow": [
+    "challenge SMILES",
+    "released CYP-finetuned CheMeleon encoder",
+    "released native 3-layer FFN",
+    "four native predictions"
+  ],
+  "model_revision": "ef24cf941ae21c7d7a64df378a846bd2066eceda",
+  "commands": [
+    [
+      "/home/dan/swr/venvs/openadmet-models/bin/openadmet",
+      "predict",
+      "--input-path",
+      "/home/dan/projects/ADMET-CYP/data/cyp-challenge-train-test/cyp-challenge-TRAIN_inhibition.csv",
+      "--input-col",
+      "SMILES",
+      "--model-dir",
+      "/home/dan/projects/ADMET-CYP/cyp_feature_store/models/openadmet_cyp_chemeleon_v1/anvil_training",
+      "--output-csv",
+      "/home/dan/projects/ADMET-CYP/experiments/20260821_OA-CYP-native-zero-shot/artifacts/native_train_raw.csv",
+      "--accelerator",
+      "gpu"
+    ],
+    [
+      "/home/dan/swr/venvs/openadmet-models/bin/openadmet",
+      "predict",
+      "--input-path",
+      "/home/dan/projects/ADMET-CYP/data/cyp-challenge-train-test/cyp-challenge-TEST-BLINDED.csv",
+      "--input-col",
+      "SMILES",
+      "--model-dir",
+      "/home/dan/projects/ADMET-CYP/cyp_feature_store/models/openadmet_cyp_chemeleon_v1/anvil_training",
+      "--output-csv",
+      "/home/dan/projects/ADMET-CYP/experiments/20260821_OA-CYP-native-zero-shot/artifacts/native_blind_raw.csv",
+      "--accelerator",
+      "gpu"
+    ]
+  ],
+  "source_files": {
+    "data/cyp-challenge-train-test/cyp-challenge-TRAIN_inhibition.csv": "b8f79addd266fb6f9f4c222c5e4e73d926362328b6a8d2841871a54e46bd2278",
+    "data/cyp-challenge-train-test/cyp-challenge-TEST-BLINDED.csv": "a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9",
+    "cyp_feature_store/models/openadmet_cyp_chemeleon_v1/anvil_training/model.pth": "81d15cc43a3608f1aab465b1e690d86fd41c420615094cca1439c2e52f3b4e7b",
+    "cyp_feature_store/models/openadmet_cyp_chemeleon_v1/anvil_training/model.json": "ccb04ca4ed5b529aa1ed813abc72b05bebc6f51849ed6269b3910fa139000904"
+  },
+  "runtime": {
+    "python": "3.12.0 | packaged by Anaconda, Inc. | (main, Oct  2 2023, 17:29:18) [GCC 11.2.0]",
+    "executable": "/home/dan/swr/miniconda3/envs/cheminf/bin/python",
+    "platform": "Linux-6.8.0-134-generic-x86_64-with-glibc2.39",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "sklearn": "1.8.0"
+  },
+  "outputs": {
+    "README.md": "ffd18ffaa29b8e258a200917425de510807405946cc5bd976faa253a87338f4d",
+    "artifacts/metrics.csv": "4767a176bc9c05eb7b94275908c0e58d5857f785c0cf0406e1156e7e32609e52",
+    "artifacts/native_blind_predictions.csv": "d1c3f4050cac248841b744fa46e0cdcb53665c5d8e8ef1a04796ee4242a4f234",
+    "artifacts/native_blind_raw.csv": "c03cf269ba81f47d022cbac392f1a74abb28cc3f7e80897e055041e526072e9f",
+    "artifacts/native_blind_raw.log": "3d04d9319c8969ae33da573189524191e07f6ebbf2c16376b7419b85488fc523",
+    "artifacts/native_train_raw.csv": "8daa49af79c2b9cd0a277d6c0a012050990d8f9608b13115b9bd772b8ce98f27",
+    "artifacts/native_train_raw.log": "d2eb94b6725fa386e0f32794b71e85cbb764e100b05ba078ddc3d5be337f5f1d",
+    "artifacts/native_train_scored.parquet": "cfe0601ce1f4b1703a2bb7f7725b1e391cb2e088a0f980c4034ec5cdfb866e28",
+    "figures/01_prediction_flow.png": "c5b6af10a5c7c41543b38b207fc3a6a9c19fe7729835acf0ce1ecb904a72ee73",
+    "figures/01_prediction_flow.svg": "2c582147c18ce4d667490861df9e325f6be80087d0f9436dec9d99dab1414f7c",
+    "figures/02_distributions.png": "d54eeb7eea356974251c4497a0871b8e8c16c3e54ab581bca2d625663deba768",
+    "figures/02_distributions.svg": "3ccf80b27e586a997d34873dd83ed320d89ec58c1b203cee6cf07c817c416d4e",
+    "figures/03_observed_vs_native.png": "c09584bfcb01ddcfaa4bb510abc47f046ceb408215818eea5bffb0933ad7a0b8",
+    "figures/03_observed_vs_native.svg": "23b32d6645815f45e0b50b27671831aba47a26e8215dd2de58d18b3c55c177e8",
+    "index.html": "deafcc7dbdf2c46bbc37d182bec1d504628fa99d01ca5f8e6438fc650878d72f",
+    "src/run_experiment.py": "43c77359a195bf56933240dffe45648c5b5d38e809df43a9159409ab1c790b98",
+    "src/verify_outputs.py": "70f7c3f65a776495b82c29586731b7b3bf1aaa77418828baea19f2ac9fa0b5a0"
+  }
+}
