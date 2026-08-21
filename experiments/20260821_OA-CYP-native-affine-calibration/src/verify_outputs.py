@@ -90,15 +90,19 @@ def main() -> int:
     assert html.count("<title>") == html.count("<main>") == html.count("<h1>") == 1
     assert "Created 2026-08-21 UTC" in html and "Last edited" in html
     assert "Only the affine stage is challenge-fitted" in html
-    assert "Training predictions versus truth" in html and html.count("<figure>") == 2
+    assert "Training predictions versus truth" in html and "Raw and linear-fit predictions" in html and html.count("<figure>") == 3
     image = Image.open(R.EXP / "figures/01_prediction_flow.png")
     image.verify()
     assert (R.EXP / "figures/01_prediction_flow.svg").stat().st_size > 1000
     scatter = pd.read_csv(R.EXP / "artifacts/linear_fit_scatter_source.csv")
     assert len(scatter) == 6525 and not scatter.duplicated(["compound_id", "endpoint"]).any()
+    assert np.isfinite(scatter[["native_prediction", "calibrated_prediction"]]).all().all()
     scatter_image = Image.open(R.EXP / "figures/02_linear_fit_vs_observed.png")
     scatter_image.verify()
     assert (R.EXP / "figures/02_linear_fit_vs_observed.svg").stat().st_size > 1000
+    overlay_image = Image.open(R.EXP / "figures/03_raw_and_linear_fit_vs_observed.png")
+    overlay_image.verify()
+    assert (R.EXP / "figures/03_raw_and_linear_fit_vs_observed.svg").stat().st_size > 1000
     print(f"PASS hashes, 6,525 OOF rows, 3,000 blind rows, 24 affine fits, 2,000 grouped paired bootstraps; decision_rule_met={manifest['decision_rule_met']}")
     return 0
 

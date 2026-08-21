@@ -12,6 +12,7 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 import numpy as np
 import pandas as pd
 import scipy
@@ -187,6 +188,32 @@ def calibrated_scatter(frame: pd.DataFrame) -> None:
     plt.close(fig)
 
 
+def raw_and_calibrated_scatter(frame: pd.DataFrame) -> None:
+    fig, axes = plt.subplots(2, 2, figsize=(7.2, 7.2), sharex=True, sharey=True)
+    for ax, endpoint in zip(axes.flat, ENDPOINTS):
+        group = frame[frame.endpoint == endpoint]
+        ax.scatter(group.observed, group.native_prediction, s=7, alpha=0.24,
+                   color="#888888", linewidths=0, rasterized=True)
+        ax.scatter(group.observed, group.calibrated_prediction, s=7, alpha=0.34,
+                   color="#2f5d8a", linewidths=0, rasterized=True)
+        ax.plot([1.5, 8.0], [1.5, 8.0], color="#555", lw=0.7)
+        ax.set_xlim(1.5, 8.0); ax.set_ylim(1.5, 8.0); ax.set_aspect("equal")
+        ax.set_title(endpoint, loc="left", fontsize=10)
+        ax.spines[["top", "right"]].set_visible(False); ax.grid(False)
+    axes[1, 0].set_xlabel("Observed pIC50"); axes[1, 1].set_xlabel("Observed pIC50")
+    axes[0, 0].set_ylabel("OOF predicted pIC50"); axes[1, 0].set_ylabel("OOF predicted pIC50")
+    handles = [
+        Line2D([0], [0], marker="o", color="none", markerfacecolor="#888888", markeredgewidth=0, markersize=5, label="Raw model"),
+        Line2D([0], [0], marker="o", color="none", markerfacecolor="#2f5d8a", markeredgewidth=0, markersize=5, label="Linear fit"),
+    ]
+    fig.legend(handles=handles, loc="lower center", ncol=2, frameon=False, bbox_to_anchor=(0.5, -0.005), fontsize=8.5)
+    fig.subplots_adjust(bottom=0.10, hspace=0.20, wspace=0.18)
+    for extension in ["png", "svg"]:
+        fig.savefig(EXP / f"figures/03_raw_and_linear_fit_vs_observed.{extension}",
+                    dpi=300 if extension == "png" else None, bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+
+
 def result_table(metrics: pd.DataFrame, paired: pd.DataFrame) -> tuple[str, bool]:
     lookup = metrics.set_index(["endpoint", "model"])
     delta_lookup = paired.set_index("endpoint")
@@ -251,7 +278,7 @@ def render_html(metrics: pd.DataFrame, paired: pd.DataFrame, decision_met: bool)
         delta = affine.st_rae - raw.st_rae
         ci = diffs.loc[endpoint]
         rows.append(f"<tr><td>{endpoint}</td><td>{raw.st_rae:.9f}</td><td>{affine.st_rae:.9f}</td><td>{delta:+.9f}</td><td>{ci.ci_low:+.9f}, {ci.ci_high:+.9f}</td></tr>")
-    html = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>OpenADMET native-head affine calibration</title><style>body{{color:#222;font:16px/1.5 Georgia,serif;margin:0}}main{{max-width:62rem;margin:3rem auto;padding:0 1rem}}h1{{font-size:2.5rem}}h2{{margin-top:2.2rem;border-bottom:1px solid #ccc}}.meta{{color:#666;font:13px ui-monospace,monospace}}img{{width:min(100%,1000px)}}table{{border-collapse:collapse;width:100%;font:13px system-ui}}th,td{{padding:.42rem;border-bottom:1px solid #ddd;text-align:right}}th:first-child,td:first-child{{text-align:left}}a{{color:#285f8f}}</style></head><body><main><div class="meta">{EXP.name} · Created {CREATED} · Last edited {edited}</div><h1>OpenADMET native-head affine calibration</h1><p><strong>Purpose:</strong> test whether one endpoint-specific ordinary affine map improves released native-head predictions under the established grouped outer folds.</p><h2>Prediction construction</h2><figure><img src="figures/01_prediction_flow.png" alt="SMILES through frozen released encoder and native head, followed by the only challenge-fitted stage, endpoint affine calibration"><figcaption>Only the affine stage is challenge-fitted. Each OOF map uses its outer-training rows; final blind maps use all training labels.</figcaption></figure><h2>OOF ST-RAE</h2><table><thead><tr><th>Endpoint</th><th>Raw native</th><th>Linear fit</th><th>Δ fit−raw</th><th>Paired 95% CI</th></tr></thead><tbody>{''.join(rows)}</tbody></table><p><strong>Decision rule: {'MET' if decision_met else 'NOT MET'}.</strong> Support requires lower macro ST-RAE and no endpoint paired interval wholly above zero.</p><h2>Training predictions versus truth</h2><figure><img src="figures/02_linear_fit_vs_observed.png" alt="Four panels of linear-fit out-of-fold pIC50 predictions against observed training pIC50"><figcaption>Each point is one OOF prediction. The diagonal is perfect agreement.</figcaption></figure><h2>Artifacts</h2><p><a href="artifacts/metrics.csv">metrics</a> · <a href="artifacts/oof_predictions.parquet">OOF predictions</a> · <a href="artifacts/calibrated_blind_predictions.csv">blind predictions</a> · <a href="artifacts/affine_coefficients.csv">coefficients</a> · <a href="artifacts/run_manifest.json">manifest</a> · <a href="README.md">canonical record</a></p></main></body></html>'''
+    html = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>OpenADMET native-head affine calibration</title><style>body{{color:#222;font:16px/1.5 Georgia,serif;margin:0}}main{{max-width:62rem;margin:3rem auto;padding:0 1rem}}h1{{font-size:2.5rem}}h2{{margin-top:2.2rem;border-bottom:1px solid #ccc}}.meta{{color:#666;font:13px ui-monospace,monospace}}img{{width:min(100%,1000px)}}table{{border-collapse:collapse;width:100%;font:13px system-ui}}th,td{{padding:.42rem;border-bottom:1px solid #ddd;text-align:right}}th:first-child,td:first-child{{text-align:left}}a{{color:#285f8f}}</style></head><body><main><div class="meta">{EXP.name} · Created {CREATED} · Last edited {edited}</div><h1>OpenADMET native-head affine calibration</h1><p><strong>Purpose:</strong> test whether one endpoint-specific ordinary affine map improves released native-head predictions under the established grouped outer folds.</p><h2>Prediction construction</h2><figure><img src="figures/01_prediction_flow.png" alt="SMILES through frozen released encoder and native head, followed by the only challenge-fitted stage, endpoint affine calibration"><figcaption>Only the affine stage is challenge-fitted. Each OOF map uses its outer-training rows; final blind maps use all training labels.</figcaption></figure><h2>OOF ST-RAE</h2><table><thead><tr><th>Endpoint</th><th>Raw native</th><th>Linear fit</th><th>Δ fit−raw</th><th>Paired 95% CI</th></tr></thead><tbody>{''.join(rows)}</tbody></table><p><strong>Decision rule: {'MET' if decision_met else 'NOT MET'}.</strong> Support requires lower macro ST-RAE and no endpoint paired interval wholly above zero.</p><h2>Training predictions versus truth</h2><figure><img src="figures/02_linear_fit_vs_observed.png" alt="Four panels of linear-fit out-of-fold pIC50 predictions against observed training pIC50"><figcaption>Each point is one OOF prediction. The diagonal is perfect agreement.</figcaption></figure><h2>Raw and linear-fit predictions</h2><figure><img src="figures/03_raw_and_linear_fit_vs_observed.png" alt="Four panels comparing raw model and linear-fit OOF predictions against observed training pIC50"><figcaption>Grey points are raw model predictions. Blue points are the corresponding linear-fit OOF predictions.</figcaption></figure><h2>Artifacts</h2><p><a href="artifacts/metrics.csv">metrics</a> · <a href="artifacts/oof_predictions.parquet">OOF predictions</a> · <a href="artifacts/calibrated_blind_predictions.csv">blind predictions</a> · <a href="artifacts/affine_coefficients.csv">coefficients</a> · <a href="artifacts/run_manifest.json">manifest</a> · <a href="README.md">canonical record</a></p></main></body></html>'''
     (EXP / "index.html").write_text(html)
 
 
@@ -312,9 +339,10 @@ def main() -> int:
     results += "\n\nAll fitted slopes were positive. Therefore each individual outer-fold map and each final all-training endpoint map preserved ordering (including ties) within the rows to which that one map was applied. The assembled OOF endpoint ranks changed slightly because five independently fitted maps place different outer holdouts on different affine scales; the exact raw and affine Spearman values are reported above. No clipping was applied. Blinded labels were not available or used."
     results += f"\n\n### Reproduction\n\n```text\n{RUN_COMMAND}\n{TEST_COMMAND}\n{VERIFY_COMMAND}\n```"
     update_readme(results)
-    merged[["compound_id", "endpoint", "observed", "calibrated_prediction", "fold", "scaffold_id"]].to_csv(
+    merged[["compound_id", "endpoint", "observed", "native_prediction", "calibrated_prediction", "fold", "scaffold_id"]].to_csv(
         EXP / "artifacts/linear_fit_scatter_source.csv", index=False)
     calibrated_scatter(merged)
+    raw_and_calibrated_scatter(merged)
     render_html(metrics, paired, decision_met)
     output_hashes = {}
     for path in sorted(EXP.rglob("*")):

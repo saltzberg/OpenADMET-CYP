@@ -1,7 +1,7 @@
 {
   "status": "completed_experiment_not_submission",
   "experiment_id": "20260821_OA-CYP-native-affine-calibration",
-  "completed_at_utc": "2026-08-21T12:15:48.638705+00:00",
+  "completed_at_utc": "2026-08-21T12:50:50.126216+00:00",
   "experiment_level": "adapted_native_model_affine_only",
   "challenge_fitted_stages": [
     "endpoint-specific OLS affine intercept+slope"
@@ -47,18 +47,20 @@
     "README.md": "0722de35ff6d19d09fbb6d347813fcd36c6b2880c5e642b80f5350365b96f088",
     "artifacts/affine_coefficients.csv": "12572bb4ad96e5cb43f66eb652af37bd2d428e4b32f1b91430d69de6c206ed68",
     "artifacts/calibrated_blind_predictions.csv": "415480832c7485ff56c0f979e9bcf6660764034c1964cc6d68bd3216006a592a",
-    "artifacts/linear_fit_scatter_source.csv": "6a80448952a8e30b4a2721746ebb775cf8fb6d3b91ca7ab3922afbf2714098d0",
+    "artifacts/linear_fit_scatter_source.csv": "c71d4375db39f1ba3716c45f7045e79733cc6b5699417dca6f46d805e07a63d7",
     "artifacts/metrics.csv": "692db1d546149632e87d27db94de7872a3455a6c8c328a59688ac138f50338b4",
     "artifacts/oof_predictions.parquet": "e2ad2a8d613094e60a3bf439329439d1895ef3f82b246df830f8c2e376b44e56",
     "artifacts/paired_bootstrap_replicates.parquet": "f5e5f5e4f32a800a7aa5897dec76e8e8b44bdea8dc6b28d36984feada84d9f6a",
     "artifacts/paired_bootstrap_summary.csv": "ed9929caefef5e6b03bff0b4143566fa674c53133ea44e341a467bacfbf3ad74",
     "figures/01_prediction_flow.png": "f18c692bbf1c45a681c3417ba1f41d727f9f97dfdfa2fb26fc33d45a78d52b17",
-    "figures/01_prediction_flow.svg": "e2c290cd74e556f1f647a5d5799b30c9421ca0042ac4d3465878c0313fe4570b",
+    "figures/01_prediction_flow.svg": "4e754569b9dc5a1fcf577d733069fffa72d86ce86d69634509dcad1d6cd2f2e3",
     "figures/02_linear_fit_vs_observed.png": "eb85ff2f5a29682fe5b50c56b14999eaf0f67514d9a5778284dfbce002864c9c",
-    "figures/02_linear_fit_vs_observed.svg": "fe9520c78b4dcdb2c11e681f710d335dff8cc75e654d9b12f6500c7d845ea2c0",
-    "index.html": "cded24e29af70a1672960f1270b18a9769342f7d4ccc8b968c0afed7f29ba039",
-    "src/run_experiment.py": "bd93ca082d40cda5aba38c66801faab41d067b5c96f94032d0aff616de206230",
+    "figures/02_linear_fit_vs_observed.svg": "570cf2b6c22b2535baa8e113079f6a76487a64181d1db1652600aec38a7228c0",
+    "figures/03_raw_and_linear_fit_vs_observed.png": "1b43e10bf33e6fab22f319dcc39ce599778b084c0fb6a09a0313b8c44c4e4bb7",
+    "figures/03_raw_and_linear_fit_vs_observed.svg": "3e0db2dbdcea1e233a5a55f27e0a53e8c74a03051b4532f4434a727f7ce85bdd",
+    "index.html": "a91a76a6bba652394c1e4a5abe4c15acacefb15d9ab2a7327de9728a6ee1a961",
+    "src/run_experiment.py": "e2740ef02315f8af0c30b72b3f0134e6aa9d8dace8a2ac16f02b35461ac3077d",
     "src/test_experiment.py": "48dc4fa25e365b4fdc085e4cd542979666aedb57aac128d2a20958b15d8d9c25",
-    "src/verify_outputs.py": "238787785e24fdf066a0587272bb59e528ada82cb06907c9da9e2b08113db52a"
+    "src/verify_outputs.py": "b92306c691c7b19bd319752a0b3ab82f0020240175ac833e7b2deee6c59542dc"
   }
 }
