@@ -1,6 +1,6 @@
 # Linear scaling of OpenADMET-trained ChemEleon weights
 
-This submission applies and endpoint-specific linear calibration to predictions from the pretrained [OpenADMET ChEMBL 37 CYP CheMeleon]([Link to site](https://huggingface.co/openadmet/cyp1a2-cyp2d6-cyp3a4-cyp2c9-chemeleon-v1)) model.  
+This submission applies an endpoint-specific linear calibration to predictions from the pretrained [OpenADMET ChEMBL 37 CYP CheMeleon model](https://huggingface.co/openadmet/cyp1a2-cyp2d6-cyp3a4-cyp2c9-chemeleon-v1).  
 
 ## Model
 
@@ -42,7 +42,7 @@ The final coefficients are:
 
 ## Results and Discussion
 
-Raw predictions from the public ChEMBL-trained model exhibited systematic scale and baseline shifts relative to the challenge assay distribution. Fitting a simple linear post-processing step somewhat corrects this assay-level domain shift (adjusting mean baseline and variance).  Compound rankings are not changed with the linear scaling.
+Raw predictions from the public ChEMBL-trained model exhibited systematic scale and baseline shifts relative to the challenge assay distribution. Fitting a simple linear post-processing step somewhat corrects this assay-level domain shift by adjusting the mean and variance. Each final endpoint scaling uses a positive slope, so it does not change the compound ranking for the submitted predictions.
 
 ## Limitations and Observations
 
@@ -51,7 +51,7 @@ Raw predictions from the public ChEMBL-trained model exhibited systematic scale 
 
 ## Reproduction
 
-Install the [OpenADMET model runtime](LINK), download the released model directory, then run:
+Install the [OpenADMET model runtime](https://github.com/OpenADMET/openadmet-models), download the released model directory, then run:
 
 ```bash
 python submissions/regression/002-native-head-affine-calibration/reproduce_from_model.py \
@@ -60,13 +60,6 @@ python submissions/regression/002-native-head-affine-calibration/reproduce_from_
   --coefficients submissions/regression/002-native-head-affine-calibration/affine_coefficients.csv \
   --output reproduced.csv \
   --accelerator cpu
-```
-
-To rebuild the CSV of model predictions directly:
-
-```bash
-python submissions/regression/002-native-head-affine-calibration/create_submission.py \
-  --output submissions/regression/002-native-head-affine-calibration/openadmet-cyp_regression-sub_dargason_20260821T021138Z.csv
 ```
 
 ---
