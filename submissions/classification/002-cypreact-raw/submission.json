@@ -5,7 +5,7 @@
   "slug": "cypreact-raw",
   "short_name": "CypReact v1.2 raw calls",
   "description": "Frozen CypReact v1.2 R/N reactant calls mapped directly to TDI classification outputs.",
-  "status": "submitted_pending_scores",
+  "status": "scored",
   "prepared_at": "2026-08-21T02:19:06Z",
   "submitted_at": "2026-08-21T14:11:05.320958Z",
   "leaderboard_identity": "dargason",
@@ -63,8 +63,49 @@
     "state": "scheduled"
   },
   "scores": {
-    "state": "pending",
-    "last_checked": null,
-    "leaderboards": {}
+    "state": "scored",
+    "last_checked": "2026-08-21T14:43:23.784778+00:00",
+    "source_fields": {
+      "overall": [
+        "MA-MCC",
+        "MA-Accuracy",
+        "MA-Precision",
+        "MA-Recall",
+        "MA-F1 Score"
+      ],
+      "endpoints": [
+        "MCC",
+        "Accuracy",
+        "Precision",
+        "Recall",
+        "F1 Score"
+      ]
+    },
+    "leaderboards": {
+      "overall": {
+        "submitted": "2026-08-21 14:11 UTC",
+        "MA-MCC": 0.0407,
+        "MA-Accuracy": 0.2027,
+        "MA-Precision": 0.183,
+        "MA-Recall": 1.0,
+        "MA-F1 Score": 0.2944
+      },
+      "CYP2D6": {
+        "submitted": "2026-08-21 14:11 UTC",
+        "MCC": 0.056,
+        "Accuracy": 0.1113,
+        "Precision": 0.0736,
+        "Recall": 1.0,
+        "F1 Score": 0.1368
+      },
+      "CYP3A4": {
+        "submitted": "2026-08-21 14:11 UTC",
+        "MCC": 0.0254,
+        "Accuracy": 0.2942,
+        "Precision": 0.2923,
+        "Recall": 1.0,
+        "F1 Score": 0.4519
+      }
+    }
   }
 }
