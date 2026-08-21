@@ -1,6 +1,8 @@
 # 002-cypreact-raw
 
-This submission uses the frozen CypReact v1.2 endpoint models, maps their public `R` (reactant) and `N` (non-reactant) calls directly to `True` and `False`, and outputs CYP2D6 and CYP3A4 TDI classifications.
+This submission uses the frozen [CypReact v1.2](https://github.com/Le0nT1/CypReact_old/releases/tag/1.2) endpoint models, maps their public `R` (reactant) and `N` (non-reactant) calls directly to `True` and `False`, and outputs CYP2D6 and CYP3A4 TDI classifications.
+
+[CypReact](https://doi.org/10.1021/acs.jcim.8b00035) predicts whether a molecule is metabolized by specific human cytochrome P450 enzymes. The input is molecular fragment descriptors and MACCS structural keys and the output is a binary reactant or non-reactant call.
 
 ## Model
 
@@ -19,28 +21,36 @@ Challenge-fitted or challenge-selected stages: none
 
 **Training details**
 
-- **Base model:** CypReact v1.2, using the released CYP2D6 and CYP3A4 models and bundled support files.
+- **Base model:** CypReact v1.2, using the base CYP2D6 and CYP3A4 models.
 - **Prediction interface:** the frozen public binary `R`/`N` interface; it exposes neither probabilities nor confidence scores.
-- **Challenge-data use:** no challenge labels were used for training, selection, calibration, threshold fitting, or post-processing.
+- **Challenge-data use:** no challenge labels were used for any training
 
 The adapter preserves blinded-test row order and identifiers and fails closed if either endpoint is missing or invalid. Exact inputs, runtime, model assets, commands, and checksums are recorded in [`inference_manifest.json`](inference_manifest.json).
 
 ## Results and discussion
 
-Association with released OpenADMET training labels was evaluated separately from the blinded submission using 2,000-replicate Bemis–Murcko scaffold-cluster bootstrap intervals. These values describe released-training association, not blind or leaderboard performance.
+Performance on OpenADMET training labels was evaluated using 2,000-replicate Bemis–Murcko scaffold-cluster bootstrap intervals. 
 
-| Endpoint | Coverage | Average precision (95% CI) | ROC-AUC (95% CI) | Reactant calls |
+| Endpoint | Coverage | Average precision (95% CI) | ROC-AUC (95% CI) | Positive calls |
 |---|---:|---:|---:|---:|
 | CYP2D6 | 1.000 | 0.219 (0.198–0.241) | 0.508 (0.497–0.518) | 96.3% |
 | CYP3A4 | 1.000 | 0.214 (0.199–0.230) | 0.502 (0.500–0.504) | 99.4% |
 
-Average precision was close to the label prevalence (0.216 for CYP2D6 and 0.213 for CYP3A4), while ROC-AUC was near 0.5. The binary output was also strongly saturated toward `R`. Together, these released-training results indicate near-random TDI discrimination and little ability to prioritize compounds, rather than evidence about blind performance. Exact metrics are in the [experiment table](../../../experiments/20260820_public-cyp-tdi-models/artifacts/metrics.csv).
+CypReact predicts almost everything to be reactive.  Thus, as a TDI predictor, this is fairly uninformative.  
+
+Are the negative calls informative, however?
+
+| Endpoint | # CypReact_non-reactive | TDI-positive | TDI-negative | TDI-negative rate | Baseline TDI-negative rate | Absolute % Enrichment |
+|---|---:|---:|---:|---:|---:|---:|
+| CYP2D6 | 55 | 8 | 47 | 85.5% | 78.4% | +7.1% |
+| CYP3A4 | 21 | 2 | 19 | 90.5% | 78.7% | +11.8% |
+
+**Maybe:** CypReact non-reactive calls are above the baseline TDI-negative rates, but there are false-positives.  So a negative call by CypReact is, perhaps, slightly informative for negative-TDI.  
 
 ## Limitations
 
-- CypReact predicts metabolic reactant status, whereas the challenge endpoint is time-dependent inhibition. The direct mapping is therefore a transfer baseline, not a claim that reactant status and TDI are biologically equivalent.
-- The public interface provides only saturated binary calls, so it cannot express confidence or support useful ranking within the large `R` group.
-- The historical Java/Weka runtime and model bundle constrain portability.
+- CypReact predicts metabolic reactant status, whereas the challenge endpoint is time-dependent inhibition.
+- The public CypReact interface provides only Yes/No predictions, so we cannot assess confidence or do any sort of ranking within the large `R` group.
 
 ## Reproduction
 
