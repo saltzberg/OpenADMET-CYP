@@ -15,7 +15,7 @@
   "artifact_sha256": "e85906101f568c11a72dd4cccf2ebe8212f9c8c77f327d3a9242c9e844f8a2aa",
   "validation": {
     "validator": "openadmet-cyp-submissions/scripts/validate_submission.py",
-    "validated_at": "2026-08-21T02:20:55.349897Z",
+    "validated_at": "2026-08-21T14:06:21.711623Z",
     "test_sha256": "a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9",
     "rows": 750,
     "columns": [
@@ -34,16 +34,16 @@
   "gates": {
     "github": {
       "branch": "main",
-      "commit": null,
-      "verified_at": null,
-      "remote_artifact_sha256": null,
-      "model_report_http_status": null
+      "commit": "55fbbedf7472f865c0527069bf79674d20e15fbe",
+      "verified_at": "2026-08-21T14:06:21Z",
+      "remote_artifact_sha256": "e85906101f568c11a72dd4cccf2ebe8212f9c8c77f327d3a9242c9e844f8a2aa",
+      "model_report_http_status": 200
     },
     "aetherark": {
       "branch": "master",
-      "commit": null,
-      "verified_at": null,
-      "method_report_http_status": null
+      "commit": "5d6e8ff1a439c2d20ef37d064b7130c10e2c5b43",
+      "verified_at": "2026-08-21T14:08:21Z",
+      "method_report_http_status": 200
     }
   },
   "approval": {
