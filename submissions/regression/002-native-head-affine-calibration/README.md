@@ -1,62 +1,57 @@
-# Native-head affine calibration
+# Linear scaling of OpenADMET-trained ChemEleon weights
 
-This model applies one endpoint-specific affine map to the released OpenADMET ChEMBL 37 CYP CheMeleon model's native predictions. The released molecular encoder and native four-output neural head are unchanged.
+This submission applies and endpoint-specific linear calibration to predictions from the pretrained [OpenADMET ChEMBL 37 CYP CheMeleon]([Link to site](https://huggingface.co/openadmet/cyp1a2-cyp2d6-cyp3a4-cyp2c9-chemeleon-v1)) model.  
 
 ## Model
 
+**Information Flow Summary**:
 ```text
 challenge SMILES
-→ released CYP-finetuned CheMeleon encoder [unchanged]
-→ released native four-output FFN [unchanged]
-→ native endpoint prediction
-→ intercept + slope [fitted on challenge training labels]
-→ calibrated pIC50 prediction
+→ Pretrained OpenADMET CYP-finetuned CheMeleon encoder [frozen]
+→ Pretrained native four-output FFN [frozen]
+→ Raw pIC50 prediction
+→ Linear calibration [fitted on challenge training labels]
+→ Final calibrated pIC50
 ```
 
-For endpoint `e`, the submitted prediction is
+**Training Details**:
 
-```text
-calibrated_e = intercept_e + slope_e × native_e
-```
+* **Base Model**: [Pretrained OpenADMET model](https://huggingface.co/openadmet/cyp1a2-cyp2d6-cyp3a4-cyp2c9-chemeleon-v1) `openadmet/cyp1a2-cyp2d6-cyp3a4-cyp2c9-chemeleon-v1`, revision `ef24cf941ae21c7d7a64df378a846bd2066eceda`; trained by OpenADMET on ChEMBL 37 CYP pIC50 records.
+
+*  **Calibration Fitting**: For each CYP endpoint `e`, the submitted prediction is rescaled as
+  
+  $$
+  \text{Predicted pIC}_{50} = \text{Slope}_e \times \text{Raw pIC}_{50} + \text{Intercept}_e
+  $$
+
+  Slopes and intercepts were fit to the challenge training data using 5-fold scaffold cross-validation (Bemis-Murcko clusters) to measure generalization.  Final submission parameters were fit on all available challenge training labels.
+
+* **Cross-Validation Performance**: Out-of-fold macro ST-RAE* changed from `0.8981` (raw model) to `0.5734` (linear fit model), with consistent gains across all four endpoints.
 
 The final coefficients are:
 
 | Endpoint | Intercept | Slope |
 |---|---:|---:|
-| CYP1A2 | 1.232525445548 | 0.697933314620 |
-| CYP2C9 | 1.293264085224 | 0.617372751411 |
-| CYP2D6 | 2.112812270247 | 0.489984338819 |
-| CYP3A4 | -0.867715737338 | 0.929491692017 |
+| CYP1A2 | 1.233 | 0.698 |
+| CYP2C9 | 1.293 | 0.617 |
+| CYP2D6 | 2.113 | 0.490 |
+| CYP3A4 | -0.868 | 0.929 |
 
-No clipping, nonlinear model, encoder fine-tuning, native-head fine-tuning, ensemble, or residual correction is applied.
+(rounded for display)
 
-## Inputs and outputs
 
-Input is the challenge-provided `SMILES` for each of the 750 blinded compounds. The released OpenADMET model produces four native CYP pIC50 values. The fixed affine maps produce the four direct-inhibition pIC50 output columns required by the regression track.
+## Results and Discussion
 
-## Training and data
+Raw predictions from the public ChEMBL-trained model exhibited systematic scale and baseline shifts relative to the challenge assay distribution. Fitting a simple linear post-processing step somewhat corrects this assay-level domain shift (adjusting mean baseline and variance).  Compound rankings are not changed with the linear scaling.
 
-The OpenADMET source model was released as `openadmet/cyp1a2-cyp2d6-cyp3a4-cyp2c9-chemeleon-v1`, revision `ef24cf941ae21c7d7a64df378a846bd2066eceda`, and was trained by OpenADMET on ChEMBL 37 CYP pIC50 records.
+## Limitations and Observations
 
-Only the affine intercepts and slopes were fitted in this work. They were evaluated using five grouped outer folds over the challenge training compounds. For every OOF prediction, the affine map was fitted without that compound's outer fold. Final blinded maps were then fitted from all available challenge training labels for the corresponding endpoint.
-
-OOF macro ST-RAE changed from `0.8981` for the native predictions to `0.5734` after affine calibration. Every endpoint improved in the paired grouped OOF analysis. The affine model does not improve molecular ordering within a fitted map; it adjusts endpoint offset and scale.
-
-## Expected behavior
-
-The source model's native predictions are shifted and compressed relative to the challenge training assays. The affine maps primarily correct systematic endpoint calibration while retaining the native model's ordering within each final endpoint map.
-
-## Limitations
-
-- ChEMBL pIC50 records and the challenge assays are not interchangeable measurement contexts.
-- Affine calibration cannot recover ranking information absent from the native model.
-- Source-model training overlap limits a completely external transfer interpretation.
+- ChEMBL pIC50 records and the challenge assays are not directly comparable.
 - OOF validation used exact Bemis–Murcko groups, which are mostly singletons in this dataset.
-- Blinded performance is unknown until challenge evaluation.
 
 ## Reproduction
 
-Install the OpenADMET model runtime, download the released model directory, then run:
+Install the [OpenADMET model runtime](LINK), download the released model directory, then run:
 
 ```bash
 python submissions/regression/002-native-head-affine-calibration/reproduce_from_model.py \
@@ -67,9 +62,13 @@ python submissions/regression/002-native-head-affine-calibration/reproduce_from_
   --accelerator cpu
 ```
 
-To rebuild the canonical CSV directly from the preserved calibrated long-form artifact:
+To rebuild the CSV of model predictions directly:
 
 ```bash
 python submissions/regression/002-native-head-affine-calibration/create_submission.py \
   --output submissions/regression/002-native-head-affine-calibration/openadmet-cyp_regression-sub_dargason_20260821T021138Z.csv
 ```
+
+---
+
+*ST-RAE - **Soft-Threshold Relative Absolute Error**. Error is measured as the distance between the predicted value and the credible interval bound of the fitted dose-response curve; predictions falling anywhere inside the credible interval incur zero error.
