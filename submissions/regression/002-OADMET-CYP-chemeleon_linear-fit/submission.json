@@ -5,9 +5,9 @@
   "slug": "OADMET-CYP-chemeleon_linear-fit",
   "short_name": "002-OADMET-CYP-chemeleon_linear-fit",
   "description": "OpenADMET CYP CheMeleon predictions with one linear fit per endpoint using challenge training data.",
-  "status": "prepared_not_submitted",
+  "status": "submitted_processing",
   "prepared_at": "2026-08-21T02:11:38Z",
-  "submitted_at": null,
+  "submitted_at": "2026-08-21T13:18:20.652661Z",
   "leaderboard_identity": "dargason",
   "github_model_report_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/regression/002-OADMET-CYP-chemeleon_linear-fit/README.md",
   "aetherark_method_report_url": "https://admet-cyp.aetherark.com/regression-submissions.html",
@@ -42,20 +42,20 @@
     }
   },
   "approval": {
-    "approved_at": null,
-    "approved_artifact_sha256": null,
-    "scope": null
+    "approved_at": "2026-08-21T13:17:03Z",
+    "approved_artifact_sha256": "28c3a57c268654d25e9af6ec1c29f12ff9aff94f1d3717d342ed3fc899f8293d",
+    "scope": "Approved after both GitHub and AetherArk hard gates for one live regression submission using the exact artifact, identity, disclosures, report URLs, and no optional portal fields presented in chat."
   },
   "portal": {
-    "request_started_at": null,
-    "response_received_at": null,
-    "receipt": null
+    "request_started_at": "2026-08-21T13:18:16.368422Z",
+    "response_received_at": "2026-08-21T13:18:20.652661Z",
+    "receipt": "Submission received from 'dargason' for the Regression Prediction track. Your predictions are being processed and should appear on the leaderboard within 2 hours."
   },
   "cron": {
-    "job_id": null,
+    "job_id": "c7b621c1a302",
     "schedule": "30m",
     "repeat": 8,
-    "state": "not_scheduled"
+    "state": "scheduled"
   },
   "scores": {
     "state": "pending",
