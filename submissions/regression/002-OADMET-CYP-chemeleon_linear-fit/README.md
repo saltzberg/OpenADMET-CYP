@@ -42,13 +42,13 @@ The final coefficients are:
 
 ## Results and Discussion
 
-Raw predictions from the public ChEMBL-trained model exhibited systematic scale and baseline shifts relative to the challenge assay distribution. Fitting a simple linear post-processing step somewhat corrects this assay-level domain shift by adjusting the mean and variance. Each final endpoint scaling uses a positive slope, so it does not change the compound ranking for the submitted predictions.
+Raw predictions from the public ChEMBL-trained model exhibited systematic scale and baseline shifts relative to the challenge assay distribution. Fitting a simple linear post-processing step somewhat corrects this assay-level domain shift by adjusting the mean and variance. 
 
-### Training predictions versus truth
+### Performance against training data
 
-![Four panels comparing linear-fit OOF pIC50 predictions with observed training pIC50](figures/training_predictions_vs_truth.png)
+<img src="figures/training_predictions_vs_truth.png" alt="Four panels comparing linear-fit OOF pIC50 predictions with observed training pIC50" width="50%" />
 
-Each point is one out-of-fold training prediction. The diagonal is perfect agreement.
+Each point is one out-of-fold training prediction.  Compression in all states is clear. 
 
 ## Limitations and Observations
 
