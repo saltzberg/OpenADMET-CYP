@@ -29,6 +29,7 @@ venv/
 # Local editing utilities and history
 /tools/
 /intro/.bayesian_preregistration_history/
+/site/content/.history/
 
 # Raw PDB coordinate tree; retain only small metadata and retrieval code
 /intro/pdbs/CYP1A2/
@@ -58,3 +59,11 @@ venv/
 *.tmp
 *.building
 *.partial
+
+# Local site preview approval (content hashes for the current build)
+/.site-preview.json
+
+# Generated site output; canonical copy lives in site/content/
+/site/dist/
+/site/.dist.building/
+/site/.dist.previous/

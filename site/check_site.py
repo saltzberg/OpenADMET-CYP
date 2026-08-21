@@ -2,12 +2,32 @@
 """Check the generated static site before deployment."""
 from __future__ import annotations
 
+import hashlib
 from html.parser import HTMLParser
+import json
 from pathlib import Path
 from urllib.parse import urlparse
 
-SITE = Path(__file__).resolve().parent
-PAGES = ["index.html", "methodology.html", "data.html", "cofolding.html"]
+SITE_ROOT = Path(__file__).resolve().parent
+SITE = SITE_ROOT / "dist"
+CONTENT = SITE_ROOT / "content"
+GENERATED_PAGES = ["index.html", "methodology.html", "data.html", "cofolding.html"]
+PAGES = GENERATED_PAGES + [
+    "classification-submissions.html",
+    "regression-submissions.html",
+]
+CHALLENGE_URL = "https://huggingface.co/spaces/openadmet/cyp-challenge"
+SUMMARY_RESOURCES = {
+    "regression-submissions.html",
+    "classification-submissions.html",
+    "evaluation-dashboard/",
+}
+GENERATED_SOURCES = {
+    "index.html": CONTENT / "summary.md",
+    "methodology.html": CONTENT / "methodology.md",
+    "data.html": CONTENT / "data.md",
+    "cofolding.html": CONTENT / "cofolding.md",
+}
 
 
 class Document(HTMLParser):
@@ -64,6 +84,14 @@ def local_target(page: Path, href: str) -> Path | None:
     return target
 
 
+def expected_source_digest(source: Path) -> str:
+    digest = hashlib.sha256()
+    digest.update(source.read_bytes())
+    digest.update(b"\0")
+    digest.update((CONTENT / "site.toml").read_bytes())
+    return digest.hexdigest()
+
+
 def main() -> int:
     failures: list[str] = []
     documents: dict[str, Document] = {}
@@ -76,10 +104,18 @@ def main() -> int:
         doc = Document()
         doc.feed(text)
         documents[name] = doc
-        if '<meta name="robots" content="noindex,nofollow">' not in text:
-            failures.append(f"{name}: missing robots exclusion")
-        if doc.active_nav != 1:
-            failures.append(f"{name}: expected one active nav link, found {doc.active_nav}")
+        if name in GENERATED_PAGES:
+            source = GENERATED_SOURCES[name]
+            provenance = (
+                f"generated-from: {source.relative_to(SITE_ROOT.parent).as_posix()} "
+                f"sha256={expected_source_digest(source)}"
+            )
+            if provenance not in text:
+                failures.append(f"{name}: stale relative to canonical Markdown")
+            if '<meta name="robots" content="noindex,nofollow">' not in text:
+                failures.append(f"{name}: missing robots exclusion")
+            if doc.active_nav != 1:
+                failures.append(f"{name}: expected one active nav link, found {doc.active_nav}")
         for href in doc.links + doc.stylesheets + doc.scripts:
             target = local_target(path, href)
             if target is not None and not target.is_file():
@@ -99,16 +135,54 @@ def main() -> int:
 
     if "cofolding.html" not in documents.get("data.html", Document()).links:
         failures.append("data.html: missing cofolding subpage link")
+    if CHALLENGE_URL not in documents.get("index.html", Document()).links:
+        failures.append("index.html: missing official OpenADMET challenge link")
+    if CHALLENGE_URL not in documents.get("methodology.html", Document()).links:
+        failures.append("methodology.html: missing official OpenADMET challenge link")
+    summary_links = set(documents.get("index.html", Document()).links)
+    for resource in sorted(SUMMARY_RESOURCES - summary_links):
+        failures.append(f"index.html: missing challenge resource link {resource}")
+    summary_text = (SITE / "index.html").read_text()
+    aside_start = summary_text.find('<aside class="submission-box">')
+    aside_end = summary_text.find("</aside>", aside_start)
+    current_focus = summary_text.find('id="current-focus"')
+    if aside_start < 0 or aside_end < 0:
+        failures.append("index.html: submission logs are not in the summary aside")
+    else:
+        if "<h2" in summary_text[aside_start:aside_end]:
+            failures.append("index.html: submission box must not be a text-body subheading")
+        if current_focus < 0 or aside_start > current_focus:
+            failures.append("index.html: submission box is not above the text body")
     hf = "https://huggingface.co/datasets/dargason/ADMET-CYP-cofolding"
     if hf not in documents.get("cofolding.html", Document()).links:
         failures.append("cofolding.html: missing Hugging Face dataset link")
+
+    dashboard = SITE / "evaluation-dashboard"
+    for relative in ("index.html", "data.js", "plotly.min.js", "manifest.json"):
+        if not (dashboard / relative).is_file():
+            failures.append(f"evaluation dashboard: missing {relative}")
+    dashboard_manifest = dashboard / "manifest.json"
+    if dashboard_manifest.is_file():
+        dashboard_data = json.loads(dashboard_manifest.read_text())
+        if len(dashboard_data.get("endpoints", {})) != 8:
+            failures.append("evaluation dashboard: expected eight endpoints")
+        if any(str(value).startswith("/") for value in (
+            dashboard_data.get("source", ""),
+            dashboard_data.get("challenge_source", ""),
+        )):
+            failures.append("evaluation dashboard: contains machine-local source path")
+
+    for name in PAGES:
+        text = (SITE / name).read_text().lower()
+        if "stub" in text or "under development" in text:
+            failures.append(f"{name}: contains placeholder wording")
 
     if failures:
         print("Site check: FAIL")
         for failure in failures:
             print(f"- {failure}")
         return 1
-    print("Site check: PASS (4 pages, 16 sources, local links resolved)")
+    print("Site check: PASS (6 pages, 16 sources, local links resolved)")
     return 0
 
 
