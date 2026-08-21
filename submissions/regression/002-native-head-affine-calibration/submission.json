@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "track": "regression",
+  "submission_number": 2,
+  "slug": "native-head-affine-calibration",
+  "short_name": "Native-head affine calibration",
+  "description": "Released OpenADMET native CYP predictions with endpoint-specific affine calibration fitted on challenge training data.",
+  "status": "prepared_not_submitted",
+  "prepared_at": "2026-08-21T02:11:38Z",
+  "submitted_at": null,
+  "leaderboard_identity": "dargason",
+  "github_model_report_url": "https://github.com/saltzberg/OpenADMET-CYP/blob/main/submissions/regression/002-native-head-affine-calibration/README.md",
+  "aetherark_method_report_url": "https://admet-cyp.aetherark.com/regression-submissions.html",
+  "artifact": "openadmet-cyp_regression-sub_dargason_20260821T021138Z.csv",
+  "artifact_sha256": "28c3a57c268654d25e9af6ec1c29f12ff9aff94f1d3717d342ed3fc899f8293d",
+  "validation": {
+    "validator": "openadmet-cyp-submissions/scripts/validate_submission.py",
+    "validated_at": "2026-08-21T02:13:12.208725Z",
+    "test_sha256": "a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9",
+    "rows": 750,
+    "columns": ["SMILES", "Molecule_Name", "CYP1A2_pIC50_direct_inhibition", "CYP2C9_pIC50_direct_inhibition", "CYP2D6_pIC50_direct_inhibition", "CYP3A4_pIC50_direct_inhibition"]
+  },
+  "disclosures": {
+    "anonymous": false,
+    "proprietary_data": false,
+    "open_code": true,
+    "method_report": "https://admet-cyp.aetherark.com/regression-submissions.html"
+  },
+  "gates": {
+    "github": {
+      "branch": "main",
+      "commit": null,
+      "verified_at": null,
+      "remote_artifact_sha256": null,
+      "model_report_http_status": null
+    },
+    "aetherark": {
+      "branch": "master",
+      "commit": null,
+      "verified_at": null,
+      "method_report_http_status": null
+    }
+  },
+  "approval": {
+    "approved_at": null,
+    "approved_artifact_sha256": null,
+    "scope": null
+  },
+  "portal": {
+    "request_started_at": null,
+    "response_received_at": null,
+    "receipt": null
+  },
+  "cron": {
+    "job_id": null,
+    "schedule": "30m",
+    "repeat": 8,
+    "state": "not_scheduled"
+  },
+  "scores": {
+    "state": "pending",
+    "last_checked": null,
+    "leaderboards": {}
+  }
+}
