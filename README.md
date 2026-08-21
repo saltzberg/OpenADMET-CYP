@@ -12,7 +12,7 @@ This repository deliberately separates source code from large scientific artifac
 
 The project summary, methodology, and data index are published at:
 
-https://aetherark.com/sites/admet-cyp/
+https://admet-cyp.aetherark.com/
 
 The Bayesian preregistration is under **Methodology**. The cofolding release is under **Data**.
 
