@@ -46,14 +46,26 @@ Raw predictions from the public ChEMBL-trained model exhibited systematic scale 
 
 ### Performance against training data
 
-<img src="figures/training_predictions_vs_truth.png" alt="Four panels comparing linear-fit OOF pIC50 predictions with observed training pIC50" width="50%" />
+Performance of the linearly-scaled predictions (Fit) increases for all endpoints vs raw model output (Raw).
 
-Each point is one out-of-fold training prediction.  Compression in all states is clear. 
+| Endpoint | Raw ST-RAE | Raw Spearman ρ | Fit ST-RAE | Fit Spearman ρ |
+|---|---:|---:|---:|---:|
+| CYP1A2 | $\color{grey}{\text{0.6695}}$ | $\color{grey}{\text{0.2827}}$ | $\color{blue}{\text{0.6197}}$ | $\color{blue}{\text{0.2809}}$ |
+| CYP2C9 | $\color{grey}{\text{0.8862}}$ | $\color{grey}{\text{0.2841}}$ | $\color{blue}{\text{0.5012}}$ | $\color{blue}{\text{0.2791}}$ |
+| CYP2D6 | $\color{grey}{\text{1.0216}}$ | $\color{grey}{\text{0.2200}}$ | $\color{blue}{\text{0.6447}}$ | $\color{blue}{\text{0.2189}}$ |
+| CYP3A4 | $\color{grey}{\text{1.0152}}$ | $\color{grey}{\text{0.3656}}$ | $\color{blue}{\text{0.5278}}$ | $\color{blue}{\text{0.3646}}$ |
+| Macro average | $\color{grey}{\text{0.8981}}$ | $\color{grey}{\text{0.2881}}$ | $\color{blue}{\text{0.5734}}$ | $\color{blue}{\text{0.2859}}$ |
+
+Each point is one out-of-fold training prediction.  Grey is the raw OpenADMET model (Raw) and blue is the linear fit (Fit) from this submission. 
+
+<img src="figures/raw_and_linear_fit_vs_truth.png" alt="Four panels comparing linear-fit OOF pIC50 predictions with observed training pIC50" width="50%" />
+
+Improved ST-RAE in the linear fit is clearly a result of shifting the mean prediction value.  The poor rank correlation of the base model restricts the ability of scaling to recover the high compression. 
 
 ## Limitations and Observations
 
-- ChEMBL pIC50 records and the challenge assays are not directly comparable.
-- OOF validation used exact Bemis–Murcko groups, which are mostly singletons in this dataset.
+- ChEMBL pIC50 records and the challenge assays are not directly comparable - likely a cause for the poor performance.
+- OOF validation used exact Bemis–Murcko groups, which are mostly singletons in this dataset - other splitting protocols are worth testing.
 
 ## Reproduction
 
@@ -68,9 +80,7 @@ python submissions/regression/002-OADMET-CYP-chemeleon_linear-fit/reproduce_from
   --accelerator cpu
 ```
 
-## Full experiment
-
-The [full experiment record](https://github.com/saltzberg/OpenADMET-CYP/blob/main/experiments/20260821_OA-CYP-native-affine-calibration/README.md) contains the preregistered hypothesis, complete OOF predictions, bootstrap results, fold-specific and final coefficients, detailed metrics, source code, tests, verifier, and run manifest. The submission folder keeps only the concise model report, final coefficients, reproduction code, figure, metadata, and submitted CSV.
+The [full experiment record](https://github.com/saltzberg/OpenADMET-CYP/blob/main/experiments/20260821_OA-CYP-native-affine-calibration/README.md) contains the preregistered hypothesis, complete OOF predictions, bootstrap results, fold-specific and final coefficients, detailed metrics, source code, tests, verifier, and run manifest. 
 
 ---
 
