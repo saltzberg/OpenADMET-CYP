@@ -29,16 +29,16 @@
   "gates": {
     "github": {
       "branch": "main",
-      "commit": null,
-      "verified_at": null,
-      "remote_artifact_sha256": null,
-      "model_report_http_status": null
+      "commit": "b9379c3b024342941921be716f5c5232e8e923c4",
+      "verified_at": "2026-08-21T02:17:42Z",
+      "remote_artifact_sha256": "28c3a57c268654d25e9af6ec1c29f12ff9aff94f1d3717d342ed3fc899f8293d",
+      "model_report_http_status": 200
     },
     "aetherark": {
       "branch": "master",
-      "commit": null,
-      "verified_at": null,
-      "method_report_http_status": null
+      "commit": "f6d2436536496dcf46ae817cd64df21744e67448",
+      "verified_at": "2026-08-21T02:17:42Z",
+      "method_report_http_status": 200
     }
   },
   "approval": {
