@@ -1,58 +1,32 @@
-# OpenADMET CYP
+# OpenADMET CYP Challenge
 
-Code, protocols, and scientific notes for the OpenADMET cytochrome P450 inhibition challenge.
+Code, protocols, and scientific notes for the [OpenADMET cytochrome P450 inhibition challenge](https://huggingface.co/spaces/openadmet/cyp-challenge).  
+My handle in the challenge is **dargason**.
 
-This repository deliberately separates source code from large scientific artifacts:
-
-- GitHub contains code, documentation, small metadata, and canonical target sequences.
-- Hugging Face contains the cofolded and experimental structures, the row-level Parquet table, QC results, checksums, and release provenance.
-- Raw run directories, MSAs, caches, logs, and intermediate analyses remain outside version control.
+This repository is under heavy development and frequent updating. (8/21/2026) 
 
 ## Project site
 
-The project summary, methodology, and data index are published at:
+A prettier front-end to this project is at:  https://admet-cyp.aetherark.com/
 
-https://admet-cyp.aetherark.com/
 
-The Bayesian preregistration is under **Methodology**. The cofolding release is under **Data**.
+## Potentially interesting artifacts:
 
-## Cofolding dataset
+I've generated models and datasets along the way and below are some that may be of particular use:
 
-The published structure release is available at:
+* [**Cofolding dataset**](https://huggingface.co/datasets/dargason/ADMET-CYP-cofolding): Multi-method cofolding (16,590) of CYP with PDB (149) ligands using along with PoseBusters, ProLIF and other structural features.  Cofolding methods:  Boltz2, Chai-1, ESMFold2, OpenFold3, and Protenix v1.
 
-https://huggingface.co/datasets/dargason/ADMET-CYP-cofolding
 
-Version 1 contains 16,739 aligned structures: 149 experimental PDB structures and 16,590 predictions from Boltz2, Chai-1, ESMFold2, OpenFold3, and Protenix v1. The dataset card documents coverage, alignment, ligand handling, ProLIF and PoseBusters QC, limitations, and component licensing.
-
-To download and verify it:
-
-```bash
-conda create -n admet-cyp-release python=3.12 -y
-conda activate admet-cyp-release
-python -m pip install -r requirements-release.txt
-
-hf download dargason/ADMET-CYP-cofolding \
-  --repo-type dataset \
-  --local-dir data/ADMET-CYP-cofolding
-
-python scripts/verify_hf_release.py data/ADMET-CYP-cofolding
-```
-
-The verifier checks the table schema, row and method counts, coordinate paths, coordinate hashes, mmCIF parsing, and the release checksum manifest.
 
 ## Repository layout
 
-- `intro/` — challenge notes, assay interpretation, canonical sequences, and the Bayesian claim-evidence preregistration.
-- `scripts/` — scripts that build, QC, finalize, and verify the Hugging Face structure release.
-- `licenses/` — license text consumed by the release builder.
-- `docs/PUBLICATION_BOUNDARIES.md` — what belongs on GitHub, Hugging Face, or local storage.
+- `intro/` - challenge notes, assay interpretation, canonical sequences, and the Bayesian claim-evidence preregistration.
+- `scripts/` - scripts that build, QC, finalize, and verify the Hugging Face structure release.
+- `experiments/` - logged experiments: model training, etc...
+- `submissions/` - submission folders to the regression and classification tracks. Eacvh 
+- `licenses/` - license text consumed by the release builder.
 
-The current `analysis/`, `runs/`, `inputs/`, `work/`, `release/`, and editor directories are intentionally excluded from Git. They mix large generated artifacts with machine-specific paths. Reusable campaign and analysis code should be extracted into clean source directories before it is committed.
-
-## Scientific scope
-
-The cofolded structures are structural hypotheses and feature sources. They are not direct measurements of CYP inhibition, universal binding affinities, or complete representations of time-dependent inhibition. Failed or ligand-omitting cofolds are not treated as apo fallbacks.
 
 ## License
 
-Repository code and OpenADMET-generated documentation are licensed under Apache License 2.0. Experimental PDB coordinates retain their upstream CC0 status; see the Hugging Face dataset's `LICENSES.md` for component details.
+This repository's code and OpenADMET-generated documentation are licensed under Apache License 2.0. Experimental PDB coordinates retain their upstream CC0 status; see the Hugging Face dataset's `LICENSES.md` for component details.
