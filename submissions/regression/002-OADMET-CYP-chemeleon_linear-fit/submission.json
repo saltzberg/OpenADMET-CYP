@@ -5,7 +5,7 @@
   "slug": "OADMET-CYP-chemeleon_linear-fit",
   "short_name": "002-OADMET-CYP-chemeleon_linear-fit",
   "description": "OpenADMET CYP CheMeleon predictions with one linear fit per endpoint using challenge training data.",
-  "status": "submitted_processing",
+  "status": "scored",
   "prepared_at": "2026-08-21T02:11:38Z",
   "submitted_at": "2026-08-21T13:18:20.652661Z",
   "leaderboard_identity": "dargason",
@@ -55,11 +55,57 @@
     "job_id": "c7b621c1a302",
     "schedule": "30m",
     "repeat": 8,
-    "state": "scheduled"
+    "state": "paused_scored"
   },
   "scores": {
-    "state": "pending",
-    "last_checked": null,
-    "leaderboards": {}
+    "state": "scored",
+    "last_checked": "2026-08-21T13:49:24.931683+00:00",
+    "queried_at": "2026-08-21T13:49:24.931683+00:00",
+    "source_fields": {
+      "overall": ["MA-ST-RAE", "MA-MAE", "MA-R²", "MA-Spearman's ρ", "MA-Kendall's τ"],
+      "endpoints": ["ST-RAE", "MAE", "R²", "Spearman's ρ", "Kendall's τ"]
+    },
+    "leaderboards": {
+      "overall": {
+        "submitted": "2026-08-21 13:18 UTC",
+        "MA-ST-RAE": 1.1609,
+        "MA-MAE": 1.1832,
+        "MA-R²": -0.2359,
+        "MA-Spearman's ρ": 0.3919,
+        "MA-Kendall's τ": 0.2718
+      },
+      "CYP1A2": {
+        "submitted": "2026-08-21 13:18 UTC",
+        "ST-RAE": 0.97,
+        "MAE": 1.1574,
+        "R²": -0.0114,
+        "Spearman's ρ": 0.3233,
+        "Kendall's τ": 0.2254
+      },
+      "CYP2C9": {
+        "submitted": "2026-08-21 13:18 UTC",
+        "ST-RAE": 0.9601,
+        "MAE": 0.7699,
+        "R²": 0.13,
+        "Spearman's ρ": 0.4027,
+        "Kendall's τ": 0.2781
+      },
+      "CYP2D6": {
+        "submitted": "2026-08-21 13:18 UTC",
+        "ST-RAE": 1.615,
+        "MAE": 1.8389,
+        "R²": -1.1152,
+        "Spearman's ρ": 0.2983,
+        "Kendall's τ": 0.2078
+      },
+      "CYP3A4": {
+        "submitted": "2026-08-21 13:18 UTC",
+        "ST-RAE": 1.0985,
+        "MAE": 0.9667,
+        "R²": 0.0531,
+        "Spearman's ρ": 0.5432,
+        "Kendall's τ": 0.3758
+      }
+    }
   }
 }
