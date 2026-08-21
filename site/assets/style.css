@@ -93,23 +93,10 @@ footer { border-top: 1px solid var(--rule); padding: 18px 0 36px; color: var(--m
 .diagram-shell svg { display: block; height: auto; margin: 0 auto; max-width: 100%; }
 .single-card { grid-template-columns: minmax(235px, 520px); }
 .external-link strong::after { content: ' ↗'; color: var(--accent); }
-.summary-hero { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 48px; align-items: start; }
-.summary-copy { grid-column: 1; grid-row: 1; }
-.summary-copy h1 { margin-top: 0; }
-.submission-box { border: 1px solid var(--rule); grid-column: 2; grid-row: 1; margin-top: 2px; padding: 15px 17px 13px; }
-.submission-box > p:first-child { color: var(--muted); font: 700 11px/1.2 system-ui, sans-serif; letter-spacing: .12em; margin: 0 0 9px; text-transform: uppercase; }
-.submission-box ul { list-style: none; margin: 0; padding: 0; }
-.submission-box li + li { border-top: 1px solid #ebe8e1; }
-.submission-box a { display: block; font: 13px/1.4 system-ui, sans-serif; padding: 6px 0; text-decoration: none; }
-.submission-box a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 @media (max-width: 680px) {
   header, main, footer { width: min(100% - 28px, 1120px); }
   nav a { margin-right: 14px; }
   .document .byline { margin-bottom: 28px; }
   .diagram-shell { margin-inline: -2px; }
-  .summary-hero { grid-template-columns: 1fr; gap: 22px; }
-  .summary-copy, .submission-box { grid-column: 1; }
-  .summary-copy { grid-row: 1; }
-  .submission-box { grid-row: 2; margin-top: 0; max-width: 320px; }
 }
