@@ -9,6 +9,12 @@ This repository is under heavy development and frequent updating. (8/21/2026)
 
 A prettier front-end to this project is at:  https://admet-cyp.aetherark.com/
 
+### Cofolding dashboard
+
+[Source and run instructions](dashboard/README.md) for the
+[public dashboard](https://aetherark.com/articles/admet-cyp-structure/cofolding/).
+Scientific inputs remain external; the source package includes their checksum manifest.
+
 
 ## Potentially interesting artifacts:
 
